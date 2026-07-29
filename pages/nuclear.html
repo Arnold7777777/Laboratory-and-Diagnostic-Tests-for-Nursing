@@ -8,15 +8,33 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
+<body class="jewel nav-open">
 <div class="progress"></div>
-<header class="topbar">
-  <div class="topbar-inner">
+
+<aside class="railnav" id="railnav" aria-label="Site navigation">
+  <div class="rail-head">
     <a class="brand" href="../index.html">
       <span class="logo">🔬</span>
       <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
     </a>
-    <nav class="nav"><a href="../index.html">Home</a><a href="foundations.html">Foundations</a><a href="endoscopy.html">Endoscopy</a><a href="manometry.html">Manometry</a><a href="nuclear.html" class="active">Nuclear Scans</a><a href="electro.html">Electrodiagnostic</a><a href="micro.html">Micro &amp; Biopsy</a><a href="stool.html">Stool Tests</a><a href="lab-values.html">Lab Values</a></nav>
+  </div>
+  <nav class="rail-links"><a href="../index.html"><span class="ni">🏠</span><span>Home</span></a><a href="foundations.html" style="--c:#1668d8"><span class="ni">🧭</span><span><b>Ch. 1</b> Foundations</span></a><a href="endoscopy.html" style="--c:#7b3fd4"><span class="ni">🔦</span><span><b>Ch. 4</b> Endoscopy</span><em>14</em></a><a href="manometry.html" style="--c:#0a8f9c"><span class="ni">📏</span><span><b>Ch. 6</b> Manometry</span><em>5</em></a><a href="nuclear.html" class="active" style="--c:#b56a00"><span class="ni">☢️</span><span><b>Ch. 8</b> Nuclear Scans</span><em>22</em></a><a href="electro.html" style="--c:#d1197f"><span class="ni">⚡</span><span><b>Ch. 3</b> Electrodiagnostic</span><em>13</em></a><a href="micro.html" style="--c:#0f8a4d"><span class="ni">🔬</span><span><b>Ch. 7</b> Micro &amp; Biopsy</span><em>35</em></a><a href="stool.html" style="--c:#8a5a2b"><span class="ni">🧪</span><span><b>Ch. 9</b> Stool Tests</span><em>7</em></a><a href="bloodwork.html" style="--c:#d92c3c"><span class="ni">🩸</span><span>Blood Work</span><em>21</em></a><a href="fluids.html" style="--c:#0a8f9c"><span class="ni">💧</span><span>Fluids &amp; ABGs</span><em>23</em></a><a href="find-a-test.html" style="--c:#4b46c9"><span class="ni">🔎</span><span>Find a Test</span></a><a href="lab-values.html" style="--c:#d92c3c"><span class="ni">📊</span><span>Visual Reference</span><em>38</em></a></nav>
+  <div class="rail-toc sidebar"><div class="rail-sep">On this page</div><h4>Overview</h4><ol><li><a href="#ov-reasons-for-performing-nuclear-medicine-studies-1">Reasons for performing nuclear medicine studies</a></li><li><a href="#ov-procedural-care-for-nuclear-scans-2">Procedural care for nuclear scans</a></li><li><a href="#ov-reporting-of-results-3">Reporting of results</a></li></ol><h4 style="margin-top:20px">22 tests</h4><ol><li><a href="#t-bleeding-scan-1">Bleeding Scan</a></li><li><a href="#t-bone-scan-2">Bone Scan</a></li><li><a href="#t-brain-scan-3">Brain Scan</a></li><li><a href="#t-cardiac-nuclear-scan-4">Cardiac Nuclear Scan</a></li><li><a href="#t-gallbladder-nuclear-scanning-5">Gallbladder Nuclear Scanning</a></li><li><a href="#t-gallium-scan-6">Gallium Scan</a></li><li><a href="#t-gastric-emptying-scan-7">Gastric Emptying Scan</a></li><li><a href="#t-gastroesophageal-reflux-scan-8">Gastroesophageal Reflux Scan</a></li><li><a href="#t-liver-spleen-scanning-9">Liver/Spleen Scanning</a></li><li><a href="#t-lung-scan-10">Lung Scan</a></li><li><a href="#t-meckel-diverticulum-nuclear-scan-11">Meckel Diverticulum Nuclear Scan</a></li><li><a href="#t-octreotide-scan-12">Octreotide Scan</a></li><li><a href="#t-parathyroid-scan-13">Parathyroid Scan</a></li><li><a href="#t-positron-emission-tomography-14">Positron Emission Tomography</a></li><li><a href="#t-prostascint-scan-15">ProstaScint Scan</a></li><li><a href="#t-renal-scanning-16">Renal Scanning</a></li><li><a href="#t-salivary-gland-nuclear-imaging-17">Salivary Gland Nuclear Imaging</a></li><li><a href="#t-scrotal-nuclear-imaging-18">Scrotal Nuclear Imaging</a></li><li><a href="#t-sentinel-lymph-node-biopsy-19">Sentinel Lymph Node Biopsy</a></li><li><a href="#t-thyroid-scanning-20">Thyroid Scanning</a></li><li><a href="#t-total-blood-volume-21">Total Blood Volume</a></li><li><a href="#t-wbc-scan-22">WBC Scan</a></li></ol></div>
+  <div class="rail-foot">
+    <button class="tool-btn wide" data-toggle="jewel" title="Switch between the jewel-glass look and a plain high-contrast one">💎 Jewel look</button>
+  </div>
+</aside>
+<div class="rail-scrim" id="railScrim" hidden></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="navtoggle" id="navToggle" aria-label="Show or hide the menu" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand brand-top" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
     <div class="tools">
       <button class="tool-btn" data-toggle="big-text" title="Larger text">A+</button>
       <button class="tool-btn" data-toggle="dyslexic" title="Easier-to-read font">Aa</button>
@@ -25,6 +43,8 @@
     </div>
   </div>
 </header>
+
+<div class="page-shell">
 
 <div class="wrap">
   <div class="page-head">
@@ -36,7 +56,6 @@
 </div>
 <div class="wrap">
   <div class="layout">
-    <aside class="sidebar"><h4>Overview</h4><ol><li><a href="#ov-reasons-for-performing-nuclear-medicine-studies-1">Reasons for performing nuclear medicine studies</a></li><li><a href="#ov-procedural-care-for-nuclear-scans-2">Procedural care for nuclear scans</a></li><li><a href="#ov-reporting-of-results-3">Reporting of results</a></li></ol><h4 style="margin-top:20px">22 tests</h4><ol><li><a href="#t-bleeding-scan-1">Bleeding Scan</a></li><li><a href="#t-bone-scan-2">Bone Scan</a></li><li><a href="#t-brain-scan-3">Brain Scan</a></li><li><a href="#t-cardiac-nuclear-scan-4">Cardiac Nuclear Scan</a></li><li><a href="#t-gallbladder-nuclear-scanning-5">Gallbladder Nuclear Scanning</a></li><li><a href="#t-gallium-scan-6">Gallium Scan</a></li><li><a href="#t-gastric-emptying-scan-7">Gastric Emptying Scan</a></li><li><a href="#t-gastroesophageal-reflux-scan-8">Gastroesophageal Reflux Scan</a></li><li><a href="#t-liver-spleen-scanning-9">Liver/Spleen Scanning</a></li><li><a href="#t-lung-scan-10">Lung Scan</a></li><li><a href="#t-meckel-diverticulum-nuclear-scan-11">Meckel Diverticulum Nuclear Scan</a></li><li><a href="#t-octreotide-scan-12">Octreotide Scan</a></li><li><a href="#t-parathyroid-scan-13">Parathyroid Scan</a></li><li><a href="#t-positron-emission-tomography-14">Positron Emission Tomography</a></li><li><a href="#t-prostascint-scan-15">ProstaScint Scan</a></li><li><a href="#t-renal-scanning-16">Renal Scanning</a></li><li><a href="#t-salivary-gland-nuclear-imaging-17">Salivary Gland Nuclear Imaging</a></li><li><a href="#t-scrotal-nuclear-imaging-18">Scrotal Nuclear Imaging</a></li><li><a href="#t-sentinel-lymph-node-biopsy-19">Sentinel Lymph Node Biopsy</a></li><li><a href="#t-thyroid-scanning-20">Thyroid Scanning</a></li><li><a href="#t-total-blood-volume-21">Total Blood Volume</a></li><li><a href="#t-wbc-scan-22">WBC Scan</a></li></ol></aside>
     <main>
       <div class="section-label">Start here — the overview</div>
       
@@ -554,6 +573,7 @@ Liver function</td></tr><tr><td>Oxygen-15</td><td>Cerebral perfusion and oxygen 
   chapters 1, 3, 4, 6, 7, 8, 9). Visual references from SimpleNursing and personal study screenshots.
   <br>Study aid only — always follow your facility's protocols and current clinical guidelines.
 </div></footer>
+</div>
 <button class="backtop" title="Back to top">↑</button>
 <script src="../assets/js/app.js"></script>
 </body>

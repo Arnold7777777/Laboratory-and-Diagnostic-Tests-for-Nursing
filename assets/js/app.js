@@ -8,16 +8,52 @@
   };
 
   /* ---------- reading-comfort toggles ---------- */
-  ['big-text', 'dyslexic', 'art-bold', 'focus'].forEach(function (mode) {
+  // 'jewel' ships enabled in the markup, so its stored default is '1'.
+  var DEFAULT_ON = { jewel: '1' };
+  ['big-text', 'dyslexic', 'art-bold', 'focus', 'jewel'].forEach(function (mode) {
     var btn = document.querySelector('[data-toggle="' + mode + '"]');
+    var saved = LS.get('pref-' + mode, DEFAULT_ON[mode] || '0');
+    document.body.classList.toggle(mode, saved === '1');
     if (!btn) return;
-    if (LS.get('pref-' + mode) === '1') { document.body.classList.add(mode); btn.classList.add('on'); }
+    btn.classList.toggle('on', saved === '1');
     btn.addEventListener('click', function () {
       var on = document.body.classList.toggle(mode);
       btn.classList.toggle('on', on);
       LS.set('pref-' + mode, on ? '1' : '0');
+      if (mode === 'jewel') btn.textContent = on ? '💎 Jewel look' : '📄 Plain look';
     });
+    if (mode === 'jewel') btn.textContent = saved === '1' ? '💎 Jewel look' : '📄 Plain look';
   });
+
+  /* ---------- collapsible left rail ---------- */
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var scrim = document.getElementById('railScrim');
+    var narrow = function () { return window.matchMedia('(max-width:1099px)').matches; };
+
+    function setNav(open, remember) {
+      document.body.classList.toggle('nav-open', open);
+      if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (scrim) scrim.hidden = !open;
+      if (remember) LS.set('pref-nav', open ? '1' : '0');
+    }
+
+    // On phones and tablets the rail covers the page, so start it closed.
+    // On desktop, honour whatever was chosen last time (default: open).
+    setNav(narrow() ? false : LS.get('pref-nav', '1') === '1', false);
+
+    if (toggle) toggle.addEventListener('click', function () {
+      setNav(!document.body.classList.contains('nav-open'), !narrow());
+    });
+    if (scrim) scrim.addEventListener('click', function () { setNav(false, false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && narrow() && document.body.classList.contains('nav-open')) setNav(false, false);
+    });
+    // tapping a rail link on a narrow screen closes the drawer behind you
+    document.querySelectorAll('.railnav a').forEach(function (a) {
+      a.addEventListener('click', function () { if (narrow()) setNav(false, false); });
+    });
+  })();
 
   /* ---------- reading progress bar ---------- */
   var bar = document.querySelector('.progress');
@@ -76,11 +112,45 @@
     document.querySelectorAll('.sec').forEach(function (s) { s.classList.remove('open'); });
   });
 
+  /* ---------- Find-a-Test index search ---------- */
+  (function () {
+    var ix = document.querySelector('#ixsearch');
+    if (!ix) return;
+    var rows = Array.prototype.slice.call(document.querySelectorAll('a.ix'));
+    var heads = Array.prototype.slice.call(document.querySelectorAll('.prose h2, h3.az'));
+    var count = document.querySelector('.search-count');
+    function run() {
+      var q = (ix.value || '').trim().toLowerCase();
+      var shown = 0;
+      rows.forEach(function (r) {
+        var hit = !q || r.textContent.toLowerCase().indexOf(q) !== -1;
+        r.classList.toggle('hidden', !hit);
+        if (hit) shown++;
+      });
+      // hide a heading whose whole group filtered out
+      heads.forEach(function (h) {
+        var list = h.nextElementSibling;
+        var any = list && list.querySelector('a.ix:not(.hidden)');
+        h.classList.toggle('hidden', !any);
+        if (list) list.classList.toggle('hidden', !any);
+      });
+      var uniq = {};
+      rows.forEach(function (r) { uniq[r.getAttribute('href')] = 1; });
+      if (count) count.textContent = q ? shown + ' matches' : Object.keys(uniq).length + ' tests';
+    }
+    ix.addEventListener('input', run);
+    run();
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && document.activeElement !== ix) { e.preventDefault(); ix.focus(); }
+      if (e.key === 'Escape' && document.activeElement === ix) { ix.value = ''; run(); ix.blur(); }
+    });
+  })();
+
   /* ---------- search ---------- */
   var input = document.querySelector('#search');
   var counter = document.querySelector('.search-count');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.test-card'));
-  var tocItems = Array.prototype.slice.call(document.querySelectorAll('.sidebar li'));
+  var tocItems = Array.prototype.slice.call(document.querySelectorAll('.rail-toc li'));
 
   function runSearch() {
     var q = (input.value || '').trim().toLowerCase();
@@ -120,7 +190,7 @@
   openFromHash();
 
   /* ---------- scroll-spy for the sidebar ---------- */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar a'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-toc a'));
   var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
   var spyTick = 0;
   function spy() {

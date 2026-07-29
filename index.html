@@ -8,15 +8,33 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="jewel nav-open">
 <div class="progress"></div>
-<header class="topbar">
-  <div class="topbar-inner">
+
+<aside class="railnav" id="railnav" aria-label="Site navigation">
+  <div class="rail-head">
     <a class="brand" href="index.html">
       <span class="logo">🔬</span>
       <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
     </a>
-    <nav class="nav"><a href="index.html" class="active">Home</a><a href="pages/foundations.html">Foundations</a><a href="pages/endoscopy.html">Endoscopy</a><a href="pages/manometry.html">Manometry</a><a href="pages/nuclear.html">Nuclear Scans</a><a href="pages/electro.html">Electrodiagnostic</a><a href="pages/micro.html">Micro &amp; Biopsy</a><a href="pages/stool.html">Stool Tests</a><a href="pages/lab-values.html">Lab Values</a></nav>
+  </div>
+  <nav class="rail-links"><a href="index.html" class="active"><span class="ni">🏠</span><span>Home</span></a><a href="pages/foundations.html" style="--c:#1668d8"><span class="ni">🧭</span><span><b>Ch. 1</b> Foundations</span></a><a href="pages/endoscopy.html" style="--c:#7b3fd4"><span class="ni">🔦</span><span><b>Ch. 4</b> Endoscopy</span><em>14</em></a><a href="pages/manometry.html" style="--c:#0a8f9c"><span class="ni">📏</span><span><b>Ch. 6</b> Manometry</span><em>5</em></a><a href="pages/nuclear.html" style="--c:#b56a00"><span class="ni">☢️</span><span><b>Ch. 8</b> Nuclear Scans</span><em>22</em></a><a href="pages/electro.html" style="--c:#d1197f"><span class="ni">⚡</span><span><b>Ch. 3</b> Electrodiagnostic</span><em>13</em></a><a href="pages/micro.html" style="--c:#0f8a4d"><span class="ni">🔬</span><span><b>Ch. 7</b> Micro &amp; Biopsy</span><em>35</em></a><a href="pages/stool.html" style="--c:#8a5a2b"><span class="ni">🧪</span><span><b>Ch. 9</b> Stool Tests</span><em>7</em></a><a href="pages/bloodwork.html" style="--c:#d92c3c"><span class="ni">🩸</span><span>Blood Work</span><em>21</em></a><a href="pages/fluids.html" style="--c:#0a8f9c"><span class="ni">💧</span><span>Fluids &amp; ABGs</span><em>23</em></a><a href="pages/find-a-test.html" style="--c:#4b46c9"><span class="ni">🔎</span><span>Find a Test</span></a><a href="pages/lab-values.html" style="--c:#d92c3c"><span class="ni">📊</span><span>Visual Reference</span><em>38</em></a></nav>
+  
+  <div class="rail-foot">
+    <button class="tool-btn wide" data-toggle="jewel" title="Switch between the jewel-glass look and a plain high-contrast one">💎 Jewel look</button>
+  </div>
+</aside>
+<div class="rail-scrim" id="railScrim" hidden></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="navtoggle" id="navToggle" aria-label="Show or hide the menu" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand brand-top" href="index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
     <div class="tools">
       <button class="tool-btn" data-toggle="big-text" title="Larger text">A+</button>
       <button class="tool-btn" data-toggle="dyslexic" title="Easier-to-read font">Aa</button>
@@ -26,15 +44,17 @@
   </div>
 </header>
 
+<div class="page-shell">
+
 <div class="wrap">
   <section class="hero">
     <span class="kicker">Nursing · NCLEX prep</span>
     <h1>Laboratory &amp; Diagnostic Tests</h1>
-    <p>96 tests, broken into pieces small enough to actually finish. Nothing is open until you
-    open it — so you only ever look at one thing at a time.</p>
+    <p>140 tests and lab values, broken into pieces small enough to actually finish.
+    Nothing is open until you open it — so you only ever look at one thing at a time.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><b>96</b><span>tests</span></div>
-      <div class="hero-stat"><b>7</b><span>chapters</span></div>
+      <div class="hero-stat"><b>140</b><span>tests &amp; values</span></div>
+      <div class="hero-stat"><b>9</b><span>chapters</span></div>
       <div class="hero-stat"><b>38</b><span>visuals</span></div>
     </div>
   </section>
@@ -58,10 +78,16 @@
   </div>
 
   <div class="section-label">Chapters</div>
-  <div class="grid grid-3"><a class="chcard" href="pages/foundations.html" style="--c:#1668d8;--cbg:#e8f1fe"><div class="ico">🧭</div><h3>Ch. 1 · Foundations: Getting Testing Right</h3><p>Before any test happens: how specimens are handled, how you keep everyone safe, and the variables that quietly wreck a result.</p><span class="count">Foundations</span></a><a class="chcard" href="pages/endoscopy.html" style="--c:#7b3fd4;--cbg:#f2eafd"><div class="ico">🔦</div><h3>Ch. 4 · Endoscopic Studies</h3><p>A camera on a tube. Direct eyes on the inside of the body — and the sedation, perforation and bleeding risks that come with it.</p><span class="count">14 tests</span></a><a class="chcard" href="pages/manometry.html" style="--c:#0a8f9c;--cbg:#e2f6f8"><div class="ico">📏</div><h3>Ch. 6 · Manometric Studies</h3><p>Pressure measurements. Swallowing, blood vessels, bladder — anything where "how hard is it squeezing?" is the question.</p><span class="count">5 tests</span></a><a class="chcard" href="pages/nuclear.html" style="--c:#b56a00;--cbg:#fff3dc"><div class="ico">☢️</div><h3>Ch. 8 · Nuclear Scanning</h3><p>Inject a tracer, watch where it lands. Function imaging — it shows what an organ is *doing*, not just what it looks like.</p><span class="count">22 tests</span></a><a class="chcard" href="pages/electro.html" style="--c:#d1197f;--cbg:#fdeaf4"><div class="ico">⚡</div><h3>Ch. 3 · Electrodiagnostic Tests</h3><p>Reading the body's own electricity — heart, brain, muscle, nerve, fetus.</p><span class="count">13 tests</span></a><a class="chcard" href="pages/micro.html" style="--c:#0f8a4d;--cbg:#e5f7ec"><div class="ico">🔬</div><h3>Ch. 7 · Microbiologic Studies &amp; Biopsies</h3><p>Cultures, smears, genetic panels and tissue samples. The biggest chapter — and the one the NCLEX loves.</p><span class="count">35 tests</span></a><a class="chcard" href="pages/stool.html" style="--c:#8a5a2b;--cbg:#f7efe4"><div class="ico">🧪</div><h3>Ch. 9 · Stool Tests</h3><p>Blood, fat, bugs and inflammation markers in stool. Cheap, non-invasive, high-yield.</p><span class="count">7 tests</span></a></div>
+  <div class="grid grid-3"><a class="chcard" href="pages/foundations.html" style="--c:#1668d8;--cbg:#e8f1fe"><div class="ico">🧭</div><h3>Ch. 1 · Foundations: Getting Testing Right</h3><p>Before any test happens: how specimens are handled, how you keep everyone safe, and the variables that quietly wreck a result.</p><span class="count">Foundations</span></a><a class="chcard" href="pages/endoscopy.html" style="--c:#7b3fd4;--cbg:#f2eafd"><div class="ico">🔦</div><h3>Ch. 4 · Endoscopic Studies</h3><p>A camera on a tube. Direct eyes on the inside of the body — and the sedation, perforation and bleeding risks that come with it.</p><span class="count">14 tests</span></a><a class="chcard" href="pages/manometry.html" style="--c:#0a8f9c;--cbg:#e2f6f8"><div class="ico">📏</div><h3>Ch. 6 · Manometric Studies</h3><p>Pressure measurements. Swallowing, blood vessels, bladder — anything where "how hard is it squeezing?" is the question.</p><span class="count">5 tests</span></a><a class="chcard" href="pages/nuclear.html" style="--c:#b56a00;--cbg:#fff3dc"><div class="ico">☢️</div><h3>Ch. 8 · Nuclear Scanning</h3><p>Inject a tracer, watch where it lands. Function imaging — it shows what an organ is *doing*, not just what it looks like.</p><span class="count">22 tests</span></a><a class="chcard" href="pages/electro.html" style="--c:#d1197f;--cbg:#fdeaf4"><div class="ico">⚡</div><h3>Ch. 3 · Electrodiagnostic Tests</h3><p>Reading the body's own electricity — heart, brain, muscle, nerve, fetus.</p><span class="count">13 tests</span></a><a class="chcard" href="pages/micro.html" style="--c:#0f8a4d;--cbg:#e5f7ec"><div class="ico">🔬</div><h3>Ch. 7 · Microbiologic Studies &amp; Biopsies</h3><p>Cultures, smears, genetic panels and tissue samples. The biggest chapter — and the one the NCLEX loves.</p><span class="count">35 tests</span></a><a class="chcard" href="pages/stool.html" style="--c:#8a5a2b;--cbg:#f7efe4"><div class="ico">🧪</div><h3>Ch. 9 · Stool Tests</h3><p>Blood, fat, bugs and inflammation markers in stool. Cheap, non-invasive, high-yield.</p><span class="count">7 tests</span></a><a class="chcard" href="pages/bloodwork.html" style="--c:#d92c3c;--cbg:#fdeaec"><div class="ico">🩸</div><h3>Blood Work &amp; Reference Values</h3><p>The numbers on a lab slip. Sodium through white cells — what each one means, what moves it up, what moves it down, and when to worry.</p><span class="count">21 topics</span></a><a class="chcard" href="pages/fluids.html" style="--c:#0a8f9c;--cbg:#e2f6f8"><div class="ico">💧</div><h3>Fluids, Electrolytes &amp; Acid–Base</h3><p>Every electrolyte high and low, fluid volume deficit vs excess, and how to read an ABG in three steps.</p><span class="count">23 topics</span></a></div>
 
   <div class="section-label">Fast reference</div>
   <div class="grid grid-2">
+    <a class="chcard" href="pages/find-a-test.html" style="--c:#4b46c9;--cbg:#eceafd">
+      <div class="ico">🔎</div><h3>Find a Test</h3>
+      <p>Reading about a condition and hit a test you don't know? Every test on the site,
+      grouped by body system and listed A–Z. This is the page to bookmark.</p>
+      <span class="count">140 entries</span>
+    </a>
     <a class="chcard" href="pages/lab-values.html" style="--c:#d92c3c;--cbg:#fdeaec">
       <div class="ico">📊</div><h3>Lab Values &amp; Visual Reference</h3>
       <p>Every infographic in one scrollable page — BMP, CBC, coag, electrolytes, ABGs, ECG,
@@ -99,6 +125,7 @@
   chapters 1, 3, 4, 6, 7, 8, 9). Visual references from SimpleNursing and personal study screenshots.
   <br>Study aid only — always follow your facility's protocols and current clinical guidelines.
 </div></footer>
+</div>
 <button class="backtop" title="Back to top">↑</button>
 <script src="assets/js/app.js"></script>
 </body>

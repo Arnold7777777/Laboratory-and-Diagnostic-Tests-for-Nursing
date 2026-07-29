@@ -1,56 +1,63 @@
 # Laboratory & Diagnostic Tests — Nursing Study Guide
 
-An ADHD-friendly visual study guide covering **96 laboratory and diagnostic tests**,
-built from *Mosby's Manual of Diagnostic and Laboratory Tests* (chapters 1, 3, 4, 6, 7, 8, 9).
+**Live:** https://arnold7777777.github.io/Laboratory-and-Diagnostic-Tests-for-Nursing/
 
-**Live site:** https://arnold7777777.github.io/Laboratory-and-Diagnostic-Tests-for-Nursing/
+An ADHD-friendly visual study guide covering **140 tests and lab values**, built from
+*Mosby's Manual of Diagnostic and Laboratory Tests* (ch. 1, 3, 4, 6, 7, 8, 9) and
+*Saunders Comprehensive Review for the NCLEX-RN* (ch. 8, 9, 10).
 
 ## Why it looks like this
 
 Designed for people who lose the thread in a wall of text:
 
 - **Nothing is open until you open it.** Every test is a collapsed card. Click one and you see
-  one test — not ninety-six.
+  one test — not a hundred and forty.
+- **Collapsible left sidebar** holds the chapter menu *and* the contents of the page you're on.
+  Hamburger button hides it entirely when you want the width.
 - **Focus mode** dims every card except the one you're reading.
+- **Jewel-glass cards over the artwork** — each chapter has its own gemstone tint, translucent
+  so the background reads through. `Art` turns the artwork up; `💎 Jewel look` swaps to a plain
+  high-contrast theme.
 - **Colour = meaning.** Green normal · yellow numbers to memorise · red *don't* ·
-  orange *what can go wrong*.
+  orange *what can go wrong* · purple *pyramid point*.
 - **The same five questions every time.** What's normal → why order it → who can't have it →
   before/during/after → what abnormal means.
-- **Text size and font toggles** in the top bar (`A+` / `Aa`).
+- **Text size and font toggles** (`A+` / `Aa`). Every preference is remembered.
 - **Press `/`** anywhere to search.
-- **38 infographics** placed where they're relevant, click any to view full size.
+- **38 infographics** placed where they're relevant; click any to view full size.
 
-## Chapters
+## Pages
 
-| # | Chapter | Tests |
-|---|---------|-------|
-| 1 | Foundations: Getting Testing Right | overview |
-| 4 | Endoscopic Studies | 14 |
-| 6 | Manometric Studies | 5 |
-| 8 | Nuclear Scanning | 22 |
-| 3 | Electrodiagnostic Tests | 13 |
-| 7 | Microbiologic Studies & Biopsies | 35 |
-| 9 | Stool Tests | 7 |
-
-Plus a **Lab Values & Visual Reference** page collecting every infographic in one place.
+| Page | What's in it |
+|------|--------------|
+| **Find a Test** | All 140 tests grouped by body system, then A–Z. The page to bookmark. |
+| Ch. 1 Foundations | Precautions, specimen handling, the variables that skew a result |
+| Ch. 4 Endoscopy | 14 tests |
+| Ch. 6 Manometry | 5 tests |
+| Ch. 8 Nuclear Scanning | 22 tests |
+| Ch. 3 Electrodiagnostic | 13 tests |
+| Ch. 7 Micro & Biopsy | 35 tests |
+| Ch. 9 Stool Tests | 7 tests |
+| **Blood Work** | 21 topics — sodium through WBC, plus vital signs *(Saunders ch. 10)* |
+| **Fluids & ABGs** | 23 topics — every electrolyte high/low, fluid balance, ABG interpretation *(Saunders ch. 8–9)* |
+| **Visual Reference** | All 38 infographics on one scrollable page |
 
 ## Running it locally
 
-It's a plain static site — no build step.
+Plain static site, no build step.
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
 ## Structure
 
 ```
 index.html              home
-pages/*.html            one page per chapter + lab-values.html
-assets/css/style.css
-assets/js/app.js
-assets/img/             38 reference images
+pages/*.html            chapters, blood work, fluids, find-a-test, lab-values
+assets/css/style.css    light theme + jewel theme + rail nav
+assets/js/app.js        accordions, search, rail, preference toggles
+assets/img/             39 images
 ```
 
 ---

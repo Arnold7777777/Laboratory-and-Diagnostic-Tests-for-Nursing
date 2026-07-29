@@ -507,3 +507,407 @@ figcaption::after{
   .sec-body{display:block!important}
   .layout{grid-template-columns:1fr}
 }
+
+/* ==========================================================================
+   JEWEL THEME — translucent jewel-toned glass over the lab-motif artwork
+   Applied via  body.jewel  (the default).  The "Plain" button removes the
+   class and restores the light theme above.
+   ========================================================================== */
+body.jewel{
+  --ink:#f2f6ff;
+  --ink-soft:#cfd9ef;
+  --muted:#9fb0d0;
+  --line:rgba(255,255,255,.16);
+  --glass:rgba(255,255,255,.10);
+  --shadow:0 2px 6px rgba(0,0,0,.28), 0 10px 30px rgba(0,0,0,.34);
+  --shadow-lg:0 18px 54px rgba(0,0,0,.52);
+  color:var(--ink);
+  background:#070b1a;
+}
+
+/* ---- background: let the art through, only a light haze for contrast ---- */
+body.jewel::after{
+  background:
+    radial-gradient(130% 100% at 50% 0%, rgba(6,10,26,.14) 0%, rgba(6,10,26,.34) 58%, rgba(4,7,20,.50) 100%);
+}
+body.jewel.art-bold::after{
+  background:radial-gradient(130% 100% at 50% 0%, rgba(6,10,26,0) 0%, rgba(6,10,26,.12) 58%, rgba(4,7,20,.26) 100%);
+}
+body.jewel.art-bold .page-head,
+body.jewel.art-bold .sidebar{background:rgba(10,16,36,.55); box-shadow:var(--shadow)}
+body.jewel.art-bold .section-label{background:rgba(10,16,36,.6); color:var(--ink-soft)}
+body.jewel.art-bold .section-label::after{background:rgba(255,255,255,.22)}
+
+/* ---- top bar ---- */
+body.jewel .topbar{
+  background:rgba(9,14,32,.62);
+  backdrop-filter:blur(18px) saturate(150%);
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+body.jewel .brand{color:#fff}
+body.jewel .brand small{color:var(--muted)}
+body.jewel .nav a{color:var(--ink-soft)}
+body.jewel .nav a:hover{background:rgba(255,255,255,.14); color:#fff}
+body.jewel .nav a.active{background:rgba(255,255,255,.94); color:#0b1128}
+body.jewel .tool-btn{
+  background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.22); color:var(--ink-soft);
+  backdrop-filter:blur(8px);
+}
+body.jewel .tool-btn:hover{background:rgba(255,255,255,.20); color:#fff; border-color:rgba(255,255,255,.4)}
+body.jewel .tool-btn.on{background:rgba(255,255,255,.94); color:#0b1128; border-color:transparent}
+
+/* ---- headings / prose chrome ---- */
+body.jewel .page-head h1,
+body.jewel .hero h1{color:#fff; text-shadow:0 2px 20px rgba(0,0,0,.55)}
+body.jewel .page-head .eyebrow,
+body.jewel .section-label{color:#a8bbdd}
+body.jewel .page-head p.lede{color:#dbe4f8; text-shadow:0 1px 10px rgba(0,0,0,.5)}
+body.jewel .section-label::after{background:rgba(255,255,255,.18)}
+body.jewel .head-art{border-color:rgba(255,255,255,.55)}
+
+/* ---- sidebar ---- */
+body.jewel .sidebar h4{color:#9fb0d0}
+body.jewel .sidebar li a{color:#cbd7f0; text-shadow:0 1px 8px rgba(0,0,0,.5)}
+body.jewel .sidebar li a:hover{background:rgba(255,255,255,.14); color:#fff}
+body.jewel .sidebar li a.active{
+  background:rgba(255,255,255,.18); color:#fff; border-left-color:#fff; box-shadow:none;
+}
+
+/* ==========================================================================
+   THE GLASS CARDS
+   Each card is tinted with its chapter's jewel colour at ~55% and blurred,
+   so roughly 45% of the artwork reads through while text stays crisp.
+   ========================================================================== */
+body.jewel .test-card,
+body.jewel .prose,
+body.jewel .chcard,
+body.jewel .ref-card,
+body.jewel .searchbar,
+body.jewel figure,
+body.jewel .tbl-wrap{
+  background-color:rgba(12,19,44,.44);
+  background-image:linear-gradient(150deg, var(--jewel, rgba(30,58,120,.42)), rgba(10,16,38,.34));
+  backdrop-filter:blur(22px) saturate(155%);
+  -webkit-backdrop-filter:blur(22px) saturate(155%);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:var(--shadow);
+  color:var(--ink);
+}
+body.jewel .test-card.is-open{
+  border-color:rgba(255,255,255,.34);
+  box-shadow:var(--shadow-lg);
+}
+body.jewel .test-head:hover{background:rgba(255,255,255,.07)}
+body.jewel .test-title h3{color:#fff; text-shadow:0 1px 10px rgba(0,0,0,.5)}
+body.jewel .test-title .aka{color:#b9c8e6}
+body.jewel .chev{color:#c3d0ea}
+body.jewel .test-num{
+  background:rgba(255,255,255,.20); color:#fff; border:1px solid rgba(255,255,255,.28);
+  text-shadow:0 1px 6px rgba(0,0,0,.5);
+}
+
+/* per-chapter jewel tints (set alongside --c on each card) */
+body.jewel [style*="--c:#1668d8"]{--jewel:rgba(24,74,190,.46)}   /* sapphire   */
+body.jewel [style*="--c:#7b3fd4"]{--jewel:rgba(104,44,190,.46)}  /* amethyst   */
+body.jewel [style*="--c:#0a8f9c"]{--jewel:rgba(10,120,132,.46)}  /* aquamarine */
+body.jewel [style*="--c:#b56a00"]{--jewel:rgba(150,88,10,.46)}   /* topaz      */
+body.jewel [style*="--c:#d1197f"]{--jewel:rgba(178,20,108,.46)}  /* ruby       */
+body.jewel [style*="--c:#0f8a4d"]{--jewel:rgba(14,116,68,.46)}   /* emerald    */
+body.jewel [style*="--c:#8a5a2b"]{--jewel:rgba(122,78,38,.46)}   /* bronze     */
+body.jewel [style*="--c:#d92c3c"]{--jewel:rgba(176,32,48,.46)}   /* garnet     */
+
+/* the hero keeps the art fully visible behind a jewel wash */
+body.jewel .hero::after{
+  background:linear-gradient(100deg,
+    rgba(10,18,48,.86) 0%, rgba(14,24,62,.70) 34%,
+    rgba(40,20,90,.44) 62%, rgba(20,16,60,.18) 100%);
+}
+body.jewel .hero-stat{
+  background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.28);
+  backdrop-filter:blur(10px);
+}
+
+/* ---- inner sections ---- */
+body.jewel .sec{
+  border-color:rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+}
+body.jewel .sec-head{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  text-shadow:0 1px 8px rgba(0,0,0,.55);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+body.jewel .sec-head:hover{background:rgba(255,255,255,.19)}
+body.jewel .sec-body{
+  background:rgba(6,11,28,.42);
+  border-top-color:rgba(255,255,255,.12);
+  color:#e6ecfb;
+}
+body.jewel .sec-body h5{color:#fff; border-bottom-color:rgba(255,255,255,.22)}
+body.jewel .sec-body li::before{color:#ffffff; opacity:.75}
+body.jewel .prose h2{color:#fff; border-bottom-color:rgba(255,255,255,.22)}
+body.jewel .prose h3{color:#fff}
+body.jewel .prose h4{color:#9ec5ff}
+body.jewel .prose li::before{color:#9ec5ff}
+body.jewel .prose p, body.jewel .prose li{color:#e6ecfb}
+
+/* ---- quick-glance strip ---- */
+body.jewel .glance-item{
+  backdrop-filter:blur(8px); border-width:1px;
+}
+body.jewel .g-normal{background:rgba(14,116,68,.42); border-color:rgba(120,240,180,.42); color:#dcffe9}
+body.jewel .g-normal b{color:#8affc0}
+body.jewel .g-why{background:rgba(24,74,190,.42); border-color:rgba(140,190,255,.42); color:#e2edff}
+body.jewel .g-why b{color:#9ec5ff}
+body.jewel .g-danger{background:rgba(176,32,48,.42); border-color:rgba(255,150,160,.42); color:#ffe3e6}
+body.jewel .g-danger b{color:#ff9aa6}
+
+/* ---- phase pills ---- */
+body.jewel .phase-before{background:rgba(24,74,190,.55); color:#cfe2ff}
+body.jewel .phase-during{background:rgba(150,88,10,.55); color:#ffe3b8}
+body.jewel .phase-after{background:rgba(14,116,68,.55); color:#c8ffdd}
+
+/* ---- emphasis ---- */
+body.jewel mark.val{background:rgba(255,222,90,.92); color:#3a2c00}
+body.jewel mark.danger{background:rgba(255,90,110,.92); color:#2c0007}
+body.jewel mark.safe{background:rgba(110,240,175,.90); color:#00301a}
+body.jewel .term{color:#fff; border-bottom-color:rgba(158,197,255,.75)}
+body.jewel em.soft{color:#bcc9e6}
+body.jewel kbd{color:#fff}
+
+/* ---- callouts ---- */
+body.jewel .callout{backdrop-filter:blur(8px)}
+body.jewel .c-critical{background:rgba(176,32,48,.46); border-color:rgba(255,140,152,.45); color:#ffe6e9}
+body.jewel .c-critical b.lead{color:#ff9aa6}
+body.jewel .c-tip{background:rgba(150,88,10,.46); border-color:rgba(255,206,120,.45); color:#ffeed4}
+body.jewel .c-tip b.lead{color:#ffcf7d}
+body.jewel .c-key{background:rgba(104,44,190,.46); border-color:rgba(200,160,255,.45); color:#f0e6ff}
+body.jewel .c-key b.lead{color:#cfa9ff}
+body.jewel .c-picture{background:rgba(30,44,80,.50); border-color:rgba(180,200,235,.35); color:#e3ebfa}
+body.jewel .c-picture b.lead{color:#b9cbe8}
+body.jewel .c-nurse{background:rgba(10,120,132,.46); border-color:rgba(140,235,245,.45); color:#dcfaff}
+body.jewel .c-nurse b.lead{color:#7fe4f0}
+
+/* ---- tables ---- */
+body.jewel th{
+  background:rgba(255,255,255,.16); color:#fff; border-bottom-color:rgba(255,255,255,.28);
+}
+body.jewel td{border-bottom-color:rgba(255,255,255,.12); color:#e6ecfb}
+body.jewel tbody tr:nth-child(even){background:rgba(255,255,255,.05)}
+
+/* ---- figures: images stay on white so the infographics read correctly ---- */
+body.jewel figure img{background:#fff; border-radius:10px}
+body.jewel figcaption{
+  background:rgba(255,255,255,.08); border-top-color:rgba(255,255,255,.16); color:#dbe4f8;
+}
+body.jewel figcaption b{color:#fff}
+body.jewel figcaption::after{color:#a8bbdd}
+body.jewel .fig-tag{background:rgba(255,255,255,.20); color:#fff}
+body.jewel .ref-card img{background:#fff}
+body.jewel .ref-card h3{color:#fff}
+body.jewel .ref-card p{color:#d5dff2}
+body.jewel .ref-card .rc-head::after{color:#a8bbdd}
+
+/* ---- home page cards ---- */
+body.jewel .chcard h3{color:#fff}
+body.jewel .chcard p{color:#d5dff2}
+body.jewel .chcard .count{background:rgba(255,255,255,.20); color:#fff}
+body.jewel .chcard:hover{border-color:rgba(255,255,255,.4)}
+
+/* ---- search ---- */
+body.jewel .searchbar{border:2px solid rgba(255,255,255,.22)}
+body.jewel .searchbar:focus-within{border-color:rgba(255,255,255,.6); box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+body.jewel .searchbar input{color:#fff}
+body.jewel .searchbar input::placeholder{color:#9fb0d0}
+body.jewel .search-count{color:#c3d0ea}
+
+/* ---- misc ---- */
+body.jewel .pill{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.22); color:#dbe4f8}
+body.jewel .footer{border-top-color:rgba(255,255,255,.16); color:#a8bbdd}
+body.jewel .footer a{color:#cbd7f0}
+body.jewel .backtop{background:rgba(255,255,255,.92); color:#0b1128}
+body.jewel a{color:#9ec5ff}
+body.jewel .focus .test-card:not(.is-open){opacity:.35}
+
+/* Safari / older browsers with no backdrop-filter: fall back to solid-ish glass */
+@supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+  body.jewel .test-card, body.jewel .prose, body.jewel .chcard,
+  body.jewel .ref-card, body.jewel .searchbar, body.jewel figure, body.jewel .tbl-wrap{
+    background-color:rgba(10,16,38,.86);
+  }
+  body.jewel .topbar{background:rgba(9,14,32,.94)}
+}
+
+/* ==========================================================================
+   COLLAPSIBLE LEFT RAIL NAVIGATION
+   ========================================================================== */
+:root{ --rail-w:284px; }
+
+.railnav{
+  position:fixed; top:0; left:0; bottom:0; width:var(--rail-w); z-index:80;
+  display:flex; flex-direction:column;
+  overflow-y:auto; overscroll-behavior:contain;
+  transform:translateX(-100%); transition:transform .24s cubic-bezier(.4,0,.2,1);
+  background:rgba(255,255,255,.94);
+  border-right:1px solid var(--line);
+  padding-bottom:16px;
+}
+body.nav-open .railnav{transform:none}
+
+.rail-head{padding:16px 18px 12px}
+.rail-head .brand{font-size:16.5px}
+.brand-top{display:none}
+body:not(.nav-open) .brand-top{display:flex}
+
+.rail-links{display:flex; flex-direction:column; gap:2px; padding:4px 12px 10px}
+.rail-links a{
+  display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:11px;
+  font-size:14.5px; font-weight:700; color:var(--ink-soft); line-height:1.25;
+  border-left:4px solid transparent;
+}
+.rail-links a:hover{background:rgba(0,0,0,.05); color:var(--ink); text-decoration:none}
+.rail-links a.active{
+  background:var(--c,var(--blue)); color:#fff; border-left-color:rgba(255,255,255,.5);
+}
+.rail-links a.active b{color:#fff}
+.rail-links .ni{font-size:17px; width:22px; text-align:center; flex:0 0 auto}
+.rail-links a b{font-weight:900; color:var(--muted); margin-right:3px}
+.rail-links a em{
+  margin-left:auto; font-style:normal; font-size:11.5px; font-weight:900;
+  background:rgba(0,0,0,.08); color:var(--muted); padding:2px 8px; border-radius:999px;
+}
+.rail-links a.active em{background:rgba(255,255,255,.28); color:#fff}
+
+.rail-sep{
+  font-size:11px; letter-spacing:1.2px; text-transform:uppercase; font-weight:900;
+  color:var(--muted); padding:14px 20px 8px; border-top:1px solid var(--line); margin-top:6px;
+}
+.rail-toc{padding:0 12px}
+.rail-toc h4{
+  font-size:11px; letter-spacing:1.1px; text-transform:uppercase; color:var(--muted);
+  margin:12px 8px 6px; font-weight:800;
+}
+.rail-toc ol{list-style:none; margin:0; padding:0}
+.rail-toc li a{
+  display:block; padding:6px 10px; border-radius:8px; font-size:13px; line-height:1.35;
+  color:var(--ink-soft); border-left:3px solid transparent; font-weight:600;
+}
+.rail-toc li a:hover{background:rgba(0,0,0,.05); color:var(--ink); text-decoration:none}
+.rail-toc li a.active{background:rgba(0,0,0,.06); border-left-color:var(--blue); color:var(--blue)}
+
+.rail-foot{margin-top:auto; padding:14px 16px 4px; border-top:1px solid var(--line)}
+.tool-btn.wide{width:100%; text-align:center}
+
+.rail-scrim{
+  position:fixed; inset:0; z-index:75; background:rgba(4,8,20,.55);
+  opacity:0; transition:opacity .2s; pointer-events:none;
+}
+
+/* hamburger */
+.navtoggle{
+  flex:0 0 auto; width:40px; height:38px; border-radius:11px; cursor:pointer;
+  border:1px solid var(--line); background:rgba(255,255,255,.7);
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4.5px;
+}
+.navtoggle span{display:block; width:18px; height:2px; border-radius:2px; background:var(--ink-soft); transition:.2s}
+.navtoggle:hover span{background:var(--blue)}
+body.nav-open .navtoggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+body.nav-open .navtoggle span:nth-child(2){opacity:0}
+body.nav-open .navtoggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* content shifts over on wide screens, overlays on narrow ones */
+.page-shell, .topbar{transition:padding-left .24s cubic-bezier(.4,0,.2,1)}
+@media (min-width:1100px){
+  body.nav-open .page-shell, body.nav-open .topbar{padding-left:var(--rail-w)}
+}
+@media (max-width:1099px){
+  body.nav-open .rail-scrim{opacity:1; pointer-events:auto}
+}
+
+/* the old two-column layout is now single column */
+.layout{grid-template-columns:minmax(0,1fr) !important}
+
+/* ---- jewel-theme rail ---- */
+body.jewel .railnav{
+  background:rgba(8,13,32,.80);
+  backdrop-filter:blur(26px) saturate(150%);
+  -webkit-backdrop-filter:blur(26px) saturate(150%);
+  border-right:1px solid rgba(255,255,255,.16);
+}
+body.jewel .rail-links a{color:#cbd7f0}
+body.jewel .rail-links a:hover{background:rgba(255,255,255,.12); color:#fff}
+body.jewel .rail-links a b{color:#8fa4cc}
+body.jewel .rail-links a em{background:rgba(255,255,255,.14); color:#c3d0ea}
+body.jewel .rail-links a.active{color:#fff; box-shadow:0 4px 18px rgba(0,0,0,.4)}
+body.jewel .rail-sep,
+body.jewel .rail-toc h4{color:#9fb0d0; border-top-color:rgba(255,255,255,.14)}
+body.jewel .rail-toc li a{color:#c3d0ea}
+body.jewel .rail-toc li a:hover{background:rgba(255,255,255,.12); color:#fff}
+body.jewel .rail-toc li a.active{background:rgba(255,255,255,.16); color:#fff; border-left-color:#fff}
+body.jewel .rail-foot{border-top-color:rgba(255,255,255,.14)}
+body.jewel .navtoggle{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.22)}
+body.jewel .navtoggle span{background:#dbe4f8}
+body.jewel .navtoggle:hover span{background:#fff}
+
+@media (max-width:760px){
+  :root{ --rail-w:270px; }
+  .rail-head{padding:12px 14px 8px}
+}
+
+/* ==========================================================================
+   FIND-A-TEST INDEX
+   ========================================================================== */
+.ix-list{display:grid; gap:8px; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); margin:6px 0 26px}
+a.ix{
+  display:flex; align-items:flex-start; gap:11px; padding:11px 13px; border-radius:11px;
+  border:1px solid var(--line); background:var(--card); color:inherit;
+  border-left:4px solid var(--c,var(--blue)); line-height:1.35; transition:.14s;
+}
+a.ix:hover{transform:translateX(2px); text-decoration:none; border-color:var(--c,var(--blue))}
+.ix-ico{font-size:16px; flex:0 0 auto; margin-top:1px}
+.ix-main{flex:1 1 auto; min-width:0}
+.ix-main b{display:block; font-size:14.5px; font-weight:750}
+.ix-aka{display:block; font-size:12px; color:var(--muted); font-style:italic; margin-top:2px;
+  overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
+.ix-chap{
+  flex:0 0 auto; align-self:center; font-size:10.5px; font-weight:800; letter-spacing:.4px;
+  text-transform:uppercase; color:var(--c,var(--blue)); background:var(--cbg,rgba(0,0,0,.05));
+  padding:3px 8px; border-radius:999px; white-space:nowrap;
+}
+.prose h2 .cnt{
+  font-size:12px; font-weight:800; letter-spacing:.6px; text-transform:uppercase;
+  color:var(--muted); margin-left:8px; vertical-align:middle;
+}
+h3.az{
+  margin:22px 0 8px; font-size:26px; font-weight:900; color:var(--blue);
+  border-bottom:3px solid var(--line); padding-bottom:2px; scroll-margin-top:96px;
+}
+.azjump{display:flex; flex-wrap:wrap; gap:5px; margin:6px 0 16px}
+.azjump a{
+  width:34px; height:34px; display:grid; place-items:center; border-radius:9px;
+  border:1px solid var(--line); background:var(--card); font-weight:800; font-size:14px;
+  color:var(--ink-soft);
+}
+.azjump a:hover{background:var(--blue); color:#fff; border-color:transparent; text-decoration:none}
+
+/* jewel-theme index */
+body.jewel a.ix{
+  background:rgba(12,19,44,.44);
+  background-image:linear-gradient(150deg, var(--jewel, rgba(30,58,120,.42)), rgba(10,16,38,.30));
+  backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid rgba(255,255,255,.16);
+  border-left:4px solid var(--c,var(--blue));
+  color:var(--ink);
+}
+body.jewel a.ix:hover{border-color:rgba(255,255,255,.45); border-left-color:var(--c)}
+body.jewel .ix-main b{color:#fff}
+body.jewel .ix-aka{color:#a8bbdd}
+body.jewel .ix-chap{background:rgba(255,255,255,.16); color:#e2eaf9}
+body.jewel h3.az{color:#fff; border-bottom-color:rgba(255,255,255,.24)}
+body.jewel .azjump a{
+  background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.20); color:#dbe4f8;
+  backdrop-filter:blur(8px);
+}
+body.jewel .azjump a:hover{background:rgba(255,255,255,.92); color:#0b1128}
+body.jewel .prose h2 .cnt{color:#9fb0d0}
