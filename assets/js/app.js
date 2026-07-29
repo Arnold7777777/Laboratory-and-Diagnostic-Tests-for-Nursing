@@ -221,3 +221,47 @@
 
   onScroll();
 })();
+
+/* ════════ collapsible top bar ════════
+   Adds a chevron to the top bar that folds it down to a slim strip.
+   The choice is remembered, and it works on every page because this file is shared. */
+(function () {
+  var inner = document.querySelector('.topbar .topbar-inner');
+  if (!inner || document.getElementById('topCollapse')) return;
+
+  var KEY = 'labTopCollapsed';
+
+  /* a compact title that only shows once the bar is folded */
+  var mini = document.createElement('span');
+  mini.className = 'mini-title';
+  mini.textContent = 'Lab & Diagnostic Tests';
+
+  var btn = document.createElement('button');
+  btn.id = 'topCollapse';
+  btn.type = 'button';
+  btn.innerHTML = '<span class="chev">▴</span>';
+
+  var toggleAfter = inner.querySelector('.navtoggle');
+  if (toggleAfter && toggleAfter.nextSibling) inner.insertBefore(mini, toggleAfter.nextSibling);
+  else inner.appendChild(mini);
+  inner.appendChild(btn);
+
+  function label(on) {
+    btn.title = on ? 'Show the full header' : 'Collapse the header';
+    btn.setAttribute('aria-label', btn.title);
+    btn.setAttribute('aria-expanded', on ? 'false' : 'true');
+  }
+  function set(on, save) {
+    document.body.classList.toggle('top-collapsed', on);
+    label(on);
+    if (save !== false) { try { localStorage.setItem(KEY, on ? '1' : '0'); } catch (e) {} }
+  }
+
+  btn.addEventListener('click', function () {
+    set(!document.body.classList.contains('top-collapsed'));
+  });
+
+  var start = false;
+  try { start = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  set(start, false);
+})();
