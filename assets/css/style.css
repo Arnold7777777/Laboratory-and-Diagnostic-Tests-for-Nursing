@@ -32,7 +32,43 @@ body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:var(--font); font-size:17px; line-height:1.62;
   -webkit-font-smoothing:antialiased;
+  position:relative;
 }
+/* ---------- site background: the lab-motif artwork ----------
+   Fixed, tiled-to-cover, then veiled so body text stays high-contrast.
+   The art reads clearly in the page margins; the reading column sits on
+   an opaque sheet so nothing competes with the words. */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:url("../img/hero-art.jpg") center center / cover no-repeat;
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(240,244,250,.89), rgba(244,247,251,.94));
+}
+body.art-bold::after{
+  background:linear-gradient(180deg, rgba(238,243,250,.52), rgba(244,247,251,.66));
+}
+/* in bold-art mode the chrome needs its own backing so text never sits on the art */
+body.art-bold .page-head,
+body.art-bold .sidebar{
+  background:rgba(255,255,255,.90);
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:var(--shadow);
+}
+body.art-bold .page-head{margin-top:18px}
+body.art-bold .head-art{top:16px; right:18px}
+body.art-bold .section-label{
+  color:#22334d; background:rgba(255,255,255,.86); border-radius:999px;
+  padding:5px 14px; align-self:flex-start;
+}
+body.art-bold .section-label::after{background:rgba(255,255,255,.7)}
+body.art-off::before{display:none}
+body.art-off::after{background:var(--bg)}
+
+/* the reading column gets an opaque sheet so the art never fights the text */
+.layout > main, .wrap > .prose, .wrap > .grid{position:relative}
 body.wide-off{}
 img{max-width:100%; display:block}
 a{color:var(--blue); text-decoration:none}
@@ -134,13 +170,41 @@ body.focus .test-card:not(.is-open){ opacity:.45; filter:saturate(.5); }
    ========================================================================== */
 .hero{
   border-radius:22px; padding:46px 40px; margin:26px 0 30px; color:#fff; position:relative; overflow:hidden;
-  background:linear-gradient(125deg,#0d2a5c 0%,#1668d8 48%,#7b3fd4 100%);
+  background:#0a0f22;
   box-shadow:var(--shadow-lg);
+  isolation:isolate;
+}
+/* lab-motif artwork, anchored right, fading into the gradient */
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:url("../img/hero-art.jpg") right center / cover no-repeat;
 }
 .hero::after{
-  content:""; position:absolute; right:-70px; top:-70px; width:320px; height:320px; border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(100deg,
+      rgba(8,14,34,.97) 0%,
+      rgba(10,20,52,.93) 34%,
+      rgba(16,30,72,.72) 56%,
+      rgba(20,16,60,.42) 78%,
+      rgba(20,16,60,.22) 100%);
 }
+.hero h1{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.hero p{text-shadow:0 1px 10px rgba(0,0,0,.45)}
+@media (max-width:760px){
+  .hero::after{
+    background:linear-gradient(180deg,rgba(8,14,34,.90) 0%,rgba(10,20,52,.94) 55%,rgba(20,16,60,.90) 100%);
+  }
+}
+
+/* small decorative strip reused on chapter pages */
+.page-head{position:relative}
+.head-art{
+  position:absolute; right:0; top:22px; width:118px; height:118px; border-radius:18px;
+  background:url("../img/hero-art-sm.jpg") center/cover; box-shadow:var(--shadow);
+  border:3px solid #fff; opacity:.95;
+}
+@media (max-width:820px){ .head-art{display:none} }
 .hero h1{margin:0 0 12px; font-size:clamp(30px,5vw,50px); line-height:1.08; letter-spacing:-.6px}
 .hero p{margin:0; font-size:18px; max-width:64ch; color:rgba(255,255,255,.93)}
 .hero .kicker{

@@ -8,7 +8,7 @@
   };
 
   /* ---------- reading-comfort toggles ---------- */
-  ['big-text', 'dyslexic', 'focus'].forEach(function (mode) {
+  ['big-text', 'dyslexic', 'art-bold', 'focus'].forEach(function (mode) {
     var btn = document.querySelector('[data-toggle="' + mode + '"]');
     if (!btn) return;
     if (LS.get('pref-' + mode) === '1') { document.body.classList.add(mode); btn.classList.add('on'); }
