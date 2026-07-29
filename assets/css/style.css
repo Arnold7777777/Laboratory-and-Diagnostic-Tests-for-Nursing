@@ -911,3 +911,34 @@ body.jewel .azjump a{
 }
 body.jewel .azjump a:hover{background:rgba(255,255,255,.92); color:#0b1128}
 body.jewel .prose h2 .cnt{color:#9fb0d0}
+
+/* ════════ collapsible top bar ════════ */
+#topCollapse{
+  flex:0 0 auto; margin-left:auto; width:38px; height:34px; border-radius:10px; cursor:pointer;
+  border:1px solid var(--line); background:rgba(255,255,255,.7);
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; line-height:1; color:var(--ink-soft); transition:.18s;
+}
+#topCollapse:hover{background:var(--blue,#1668d8); color:#fff; border-color:transparent}
+#topCollapse .chev{display:block; transition:transform .22s cubic-bezier(.4,0,.2,1)}
+body.top-collapsed #topCollapse .chev{transform:rotate(180deg)}
+.jewel #topCollapse{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.22); color:#dbe4f8}
+.jewel #topCollapse:hover{background:rgba(255,255,255,.3); color:#fff}
+
+/* the collapsed strip: keep the hamburger + the chevron, drop everything else */
+body.top-collapsed .topbar-inner{padding-top:2px; padding-bottom:2px; gap:8px; min-height:0}
+body.top-collapsed .topbar .navtoggle{width:30px; height:26px; border-radius:8px; gap:3.5px}
+body.top-collapsed .topbar .navtoggle span{width:15px}
+body.top-collapsed #topCollapse{width:30px; height:26px; border-radius:8px; font-size:13px}
+body.top-collapsed .topbar .brand-top,
+body.top-collapsed .topbar .tools{
+  display:none !important;
+}
+body.top-collapsed .topbar .mini-title{
+  display:block; font-weight:800; font-size:.9rem; letter-spacing:.2px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.topbar .mini-title{display:none; color:var(--ink-soft)}
+.jewel .topbar .mini-title{color:#e7eeff}
+.topbar-inner{transition:padding .2s ease}
+@media print{#topCollapse{display:none}}
