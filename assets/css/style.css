@@ -81,6 +81,25 @@ body.focus .test-card:not(.is-open){ opacity:.45; filter:saturate(.5); }
 .tool-btn:hover{border-color:var(--blue); color:var(--blue)}
 .tool-btn.on{background:var(--ink); color:#fff; border-color:var(--ink)}
 
+@media (max-width:760px){
+  .topbar-inner{padding:8px 12px; gap:8px}
+  .brand{font-size:16px}
+  .nav{
+    margin-left:0; order:3; width:100%; flex-wrap:nowrap; overflow-x:auto;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:2px;
+  }
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{white-space:nowrap; font-size:13.5px; padding:6px 11px}
+  .tools{margin-left:auto}
+  .tool-btn{padding:5px 10px; font-size:12px}
+  .hero{padding:30px 22px; border-radius:16px}
+  .prose{padding:20px 18px}
+  .test-head{padding:15px 14px; gap:10px}
+  .test-title h3{font-size:17.5px}
+  .test-body{padding:0 14px 18px}
+  .sec-body{padding:12px 13px 14px}
+}
+
 /* progress bar */
 .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:99;
   background:linear-gradient(90deg,#1668d8,#7b3fd4,#d1197f);transition:width .1s linear}
