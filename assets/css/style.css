@@ -942,3 +942,86 @@ body.top-collapsed .topbar .mini-title{
 .jewel .topbar .mini-title{color:#e7eeff}
 .topbar-inner{transition:padding .2s ease}
 @media print{#topCollapse{display:none}}
+
+/* ════════ fluids page: legend, comparison tables, practice Q&A ════════ */
+.legend{
+  margin:16px 0 4px; padding:14px 16px; border-radius:14px;
+  background:rgba(255,255,255,.72); border:1px solid var(--line);
+  backdrop-filter:blur(8px); font-size:14.5px;
+}
+.legend>b{display:block; margin-bottom:8px; font-size:13px; letter-spacing:.4px; text-transform:uppercase; color:var(--muted)}
+.legend ul{margin:0; padding-left:0; list-style:none}
+.legend li{margin:6px 0; line-height:1.5}
+.lg{display:inline-block; padding:2px 9px; border-radius:999px; font-size:12px; font-weight:800; margin-right:8px; white-space:nowrap}
+.lg-key{background:#fff3d1; color:#7a5200}
+.lg-pic{background:#e6efff; color:#1a4fa0}
+.lg-tab{background:#e2f6f8; color:#075e67}
+.lg-q{background:#f0e9fb; color:#5227a3}
+body.jewel .legend{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.20); color:#e7eeff}
+body.jewel .legend>b{color:#b9c8e6}
+
+.cmp-wrap{margin:18px 0}
+table.cmp{
+  width:100%; border-collapse:separate; border-spacing:0; margin:10px 0 6px;
+  font-size:14.5px; background:rgba(255,255,255,.70); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; backdrop-filter:blur(8px);
+}
+table.cmp th, table.cmp td{padding:10px 12px; vertical-align:top; text-align:left; border-bottom:1px solid var(--line)}
+table.cmp thead th{background:rgba(0,0,0,.05); font-size:13px; letter-spacing:.3px; text-transform:uppercase; color:var(--muted)}
+table.cmp thead th.lo{color:#0a6f8f} table.cmp thead th.hi{color:#b03a2e}
+table.cmp tbody th[scope=row]{width:15%; font-weight:800; color:var(--ink); background:rgba(0,0,0,.03)}
+table.cmp tbody tr:last-child th, table.cmp tbody tr:last-child td{border-bottom:0}
+table.cmp ul{margin:0; padding-left:18px}
+table.cmp li{margin:3px 0; line-height:1.45}
+.cmp-note{font-size:13.5px; color:var(--muted); margin:4px 2px 0}
+.sbs{font-size:.72em; vertical-align:sub}
+body.jewel table.cmp{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.18); color:#eaf0ff}
+body.jewel table.cmp th, body.jewel table.cmp td{border-bottom-color:rgba(255,255,255,.14)}
+body.jewel table.cmp thead th{background:rgba(255,255,255,.10); color:#c3d2ee}
+body.jewel table.cmp thead th.lo{color:#7fe0f2} body.jewel table.cmp thead th.hi{color:#ffa9a0}
+body.jewel table.cmp tbody th[scope=row]{background:rgba(255,255,255,.07); color:#fff}
+@media (max-width:760px){
+  table.cmp, table.cmp tbody, table.cmp tr, table.cmp td, table.cmp th{display:block; width:auto}
+  table.cmp thead{display:none}
+  table.cmp tbody th[scope=row]{width:auto; border-radius:0; font-size:15px}
+  table.cmp.cmp2 tbody td:nth-of-type(1)::before{content:"LOW / deficit"; display:block; font-size:11.5px; font-weight:800; letter-spacing:.5px; color:#0a6f8f; margin-bottom:2px}
+  table.cmp.cmp2 tbody td:nth-of-type(2)::before{content:"HIGH / excess"; display:block; font-size:11.5px; font-weight:800; letter-spacing:.5px; color:#b03a2e; margin-bottom:2px}
+  body.jewel table.cmp.cmp2 tbody td:nth-of-type(1)::before{color:#7fe0f2}
+  body.jewel table.cmp.cmp2 tbody td:nth-of-type(2)::before{color:#ffa9a0}
+}
+
+li.sub{list-style:none; margin-left:-18px; margin-top:10px; font-size:15px}
+li.sub b{color:var(--ink)} body.jewel li.sub b{color:#fff}
+
+.qa-intro{font-size:14.5px; color:var(--muted); margin:2px 0 14px}
+.qa{margin:0 0 16px; padding:14px 16px; border-radius:14px;
+  background:rgba(255,255,255,.70); border:1px solid var(--line); backdrop-filter:blur(8px)}
+.qa-q{display:flex; gap:12px; align-items:flex-start}
+.qa-n{flex:0 0 auto; width:28px; height:28px; border-radius:9px; display:grid; place-items:center;
+  background:var(--c,#7b3fd4); color:#fff; font-weight:800; font-size:14px}
+.qa-stem{margin:2px 0 8px; font-weight:650; line-height:1.5}
+.qa-sata{margin:-4px 0 8px; font-size:12.5px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; color:#b03a2e}
+ol.qa-opts{list-style:none; margin:0; padding:0}
+ol.qa-opts li{margin:5px 0; line-height:1.45; display:flex; gap:9px}
+.opt-l{flex:0 0 auto; width:22px; height:22px; border-radius:7px; display:grid; place-items:center;
+  background:rgba(0,0,0,.06); font-size:12.5px; font-weight:800; color:var(--ink-soft)}
+details.qa-a{margin-top:12px}
+details.qa-a>summary{
+  cursor:pointer; list-style:none; display:inline-block; padding:7px 14px; border-radius:999px;
+  background:var(--ink); color:#fff; font-size:13.5px; font-weight:750;
+}
+details.qa-a>summary::-webkit-details-marker{display:none}
+details.qa-a[open]>summary{background:transparent; color:var(--muted); padding-left:0}
+details.qa-a[open]>summary::after{content:" \25B2"}
+.qa-key{margin:10px 0 8px; padding:9px 12px; border-radius:10px; background:#e6f7ec; color:#0b5c30; font-weight:700}
+.qa-why,.qa-tip{margin:8px 0; padding:9px 12px; border-radius:10px; font-size:14.5px; line-height:1.5}
+.qa-why{background:rgba(22,104,216,.09); border-left:4px solid #1668d8}
+.qa-tip{background:rgba(123,63,212,.09); border-left:4px solid #7b3fd4}
+body.jewel .qa{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.18); color:#eaf0ff}
+body.jewel .opt-l{background:rgba(255,255,255,.16); color:#dbe4f8}
+body.jewel details.qa-a>summary{background:#fff; color:#0b1128}
+body.jewel details.qa-a[open]>summary{background:transparent; color:#a8bbdd}
+body.jewel .qa-key{background:rgba(43,200,120,.16); color:#c8ffe0}
+body.jewel .qa-why{background:rgba(90,160,255,.14)}
+body.jewel .qa-tip{background:rgba(170,120,255,.16)}
+@media print{details.qa-a{display:block} details.qa-a>summary{display:none}}
