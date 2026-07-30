@@ -1045,3 +1045,55 @@ a.fig-drive{
 }
 a.fig-drive:hover{background:#12b886; text-decoration:none}
 @media print{a.fig-drive{display:none}}
+
+/* ════════════════════════════════════════════════════════════════════════
+   CLOSED-CARD READABILITY  (2026-07)
+   Problem: collapsed test cards were dimmed to 45% opacity + half
+   saturation by Focus mode even when nothing was open, so the whole list
+   was hard to read until you clicked something.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* 1 ── Kill the blanket dim. Focus mode now only fades the OTHER cards
+        once you actually have one open, and much more gently. */
+body.focus .test-card:not(.is-open),
+body.jewel .focus .test-card:not(.is-open){ opacity:1; filter:none; }
+
+body.focus:has(.test-card.is-open) .test-card:not(.is-open){
+  opacity:.92; filter:none;
+}
+
+/* 2 ── Give the closed card a more solid backdrop so the title isn't
+        competing with the artwork showing through the glass. */
+body.jewel .test-card:not(.is-open){
+  background-color:rgba(9,15,36,.74);
+  background-image:linear-gradient(150deg, var(--jewel, rgba(30,58,120,.42)), rgba(8,13,32,.62));
+  border-color:rgba(255,255,255,.26);
+}
+body.jewel .test-card:not(.is-open):hover{
+  background-color:rgba(9,15,36,.88);
+  border-color:rgba(255,255,255,.46);
+}
+
+/* 3 ── Louder title: bigger, heavier, whiter, with a real shadow behind it. */
+.test-title h3{ font-size:20.5px; font-weight:800; }
+body.jewel .test-title h3{
+  color:#ffffff;
+  text-shadow:0 1px 2px rgba(0,0,0,.85), 0 2px 14px rgba(0,0,0,.55);
+}
+body.jewel .test-title .aka{ color:#ccd8f2; }
+body.jewel .chev{ color:#e4eaf9; font-size:15px; }
+
+/* 4 ── Stronger colour spine and number chip so each row has an edge. */
+.test-head{ border-left-width:8px; }
+body.jewel .test-num{
+  background:rgba(255,255,255,.28);
+  border-color:rgba(255,255,255,.44);
+}
+
+/* 5 ── Keyboard focus ring (was invisible on the dark theme). */
+.test-head:focus-visible{ outline:3px solid #ffd36b; outline-offset:-3px; }
+
+@media (max-width:760px){
+  .test-title h3{ font-size:18.5px; }
+  .test-head{ border-left-width:7px; }
+}
