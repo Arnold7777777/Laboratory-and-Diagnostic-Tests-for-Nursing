@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manometric Studies · Lab &amp; Diagnostic Tests</title>
+<meta name="description" content="Pressure measurements. Swallowing, blood vessels, bladder — anything where "how hard is it squeezing?" is the question.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="jewel nav-open">
+<style id="navDragCSS">
+#navBtns{touch-action:none}
+#navBtns.dragging{opacity:.9;cursor:grabbing}
+#navBtns.hidden-by-overlay{display:none !important}
+#nbGrip{cursor:grab;background:rgba(255,255,255,.16) !important;
+  border:1px solid rgba(255,255,255,.3) !important;color:#fff !important;
+  border-radius:22px;padding:7px 9px !important;font:900 .9rem 'Segoe UI',system-ui,sans-serif;
+  line-height:1;user-select:none;box-shadow:0 4px 14px rgba(0,0,0,.5);flex:0 0 auto}
+#nbGrip:hover{background:rgba(255,255,255,.32) !important}
+#navBtns.dragging #nbGrip{cursor:grabbing}
+@media print{#navBtns{display:none !important}}
+</style>
+<style id="a11yCSS">
+/* keep wide things inside the viewport so magnifying never forces sideways scrolling */
+img,svg,video,canvas{max-width:100%;height:auto}
+pre,code,kbd{white-space:pre-wrap;overflow-wrap:anywhere}
+.a11y-tblwrap{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+@media(max-width:1024px){
+  #nav a{white-space:normal}
+  .bar{margin-left:0 !important;margin-right:0 !important;max-width:100% !important}
+}
+
+/* rem (not em) so these can never compound down to unreadable sizes */
+small,.eyebrow,.rail-sep,.sm-txt,.tiny,.fine,.cap,.foot{font-size:.82rem}
+sub,sup{font-size:.72rem}
+
+/* keep the fixed Home/ABSN cluster from sitting on top of page titles */
+@media(max-width:1024px){
+  header h1, header p, h1:first-of-type{padding-right:92px}
+}
+@media(max-width:560px){
+  header h1, header p, h1:first-of-type{padding-right:80px}
+}
+</style>
+
+<style id="navbtnCSS">
+#navBtns{position:fixed;top:10px;right:12px;z-index:2147483000;display:flex;gap:7px;align-items:center}
+#navBtns a,#navBtns button{
+  display:inline-block;font:700 .8rem 'Segoe UI',system-ui,sans-serif;
+  padding:7px 13px;border-radius:22px;text-decoration:none;cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);box-shadow:0 4px 14px rgba(0,0,0,.5);
+  color:#fff;white-space:nowrap;line-height:1.3;
+}
+#navBtns .nbLook{background:linear-gradient(135deg,#1d4ed8,#2f6bff)}
+#navBtns .nbHome{background:linear-gradient(135deg,#5a2d82,#8e2d6b)}
+#navBtns .nbAbsn{background:linear-gradient(135deg,#0f7d6b,#12b886)}
+#navBtns a:hover,#navBtns button:hover{filter:brightness(1.15)}
+#navBtns a,#navBtns button{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+/* magnified viewports report a narrow CSS width - shed the labels early so the
+   cluster stops sitting on top of page headings */
+@media(max-width:1024px){
+  #navBtns{top:6px;right:6px;gap:5px}
+  #navBtns .nbLabel{display:none}
+  #navBtns a,#navBtns button{padding:8px 11px;font-size:1rem;line-height:1}
+}
+@media(max-width:560px){
+  #navBtns a,#navBtns button{padding:7px 9px;font-size:.95rem}
+}
+@media print{#navBtns{display:none}}
+</style>
+<div id="navBtns"><a class="nbLook" href="https://arnold7777777.github.io/NUR-198-Study-Guide/Look%20It%20Up.html" target="_blank" rel="noopener" title="Look up any topic across all your sites">&#128269;<span class="nbLabel"> Look Up</span></a><a class="nbHome" href="../index.html" title="Back to this course's study hub">&#127968;<span class="nbLabel"> Home</span></a><a class="nbAbsn" href="https://arnold7777777.github.io/ABSN-Study-Hub/" onclick="return nbToAbsn(event)" title="Close this page and go back toward the ABSN Study Hub">&#127891;<span class="nbLabel"> ABSN Hub</span></a></div>
+<script>if(window.top!==window.self){var _nb=document.getElementById("navBtns");if(_nb)_nb.style.display="none";}</script>
+<script>
+(function(){
+  var ABSN='https://arnold7777777.github.io/ABSN-Study-Hub/';
+  window.nbToAbsn=function(ev){
+    if(ev&&ev.preventDefault)ev.preventDefault();
+    /* On a sub-page: try to close this tab so the study hub behind it is revealed.
+       Browsers only allow close() on script-opened tabs, so fall back to navigating. */
+    try{ window.close(); }catch(e){}
+    setTimeout(function(){ if(!window.closed) window.location.href=ABSN; },120);
+    return false;
+  };
+})();
+</script>
+
+<div class="progress"></div>
+
+<aside class="railnav" id="railnav" aria-label="Site navigation">
+  <div class="rail-head">
+    <a class="brand" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
+  </div>
+  <nav class="rail-links"><a href="../index.html"><span class="ni">🏠</span><span>Home</span></a><a href="foundations.html" style="--c:#1668d8"><span class="ni">🧭</span><span><b>Ch. 1</b> Foundations</span></a><a href="endoscopy.html" style="--c:#7b3fd4"><span class="ni">🔦</span><span><b>Ch. 4</b> Endoscopy</span><em>14</em></a><a href="manometry.html" class="active" style="--c:#0a8f9c"><span class="ni">📏</span><span><b>Ch. 6</b> Manometry</span><em>5</em></a><a href="nuclear.html" style="--c:#b56a00"><span class="ni">☢️</span><span><b>Ch. 8</b> Nuclear Scans</span><em>22</em></a><a href="electro.html" style="--c:#d1197f"><span class="ni">⚡</span><span><b>Ch. 3</b> Electrodiagnostic</span><em>13</em></a><a href="micro.html" style="--c:#0f8a4d"><span class="ni">🔬</span><span><b>Ch. 7</b> Micro &amp; Biopsy</span><em>35</em></a><a href="stool.html" style="--c:#8a5a2b"><span class="ni">🧪</span><span><b>Ch. 9</b> Stool Tests</span><em>7</em></a><a href="bloodwork.html" style="--c:#d92c3c"><span class="ni">🩸</span><span>Blood Work</span><em>21</em></a><a href="fluids.html" style="--c:#0a8f9c"><span class="ni">💧</span><span>Fluids &amp; ABGs</span><em>23</em></a><a href="find-a-test.html" style="--c:#4b46c9"><span class="ni">🔎</span><span>Find a Test</span></a><a href="lab-values.html" style="--c:#d92c3c"><span class="ni">📊</span><span>Visual Reference</span><em>38</em></a></nav>
+  <div class="rail-toc sidebar"><div class="rail-sep">On this page</div><h4>Overview</h4><ol><li><a href="#ov-overview-1">Overview</a></li><li><a href="#ov-procedural-care-for-manometric-studies-2">Procedural care for manometric studies</a></li><li><a href="#ov-potential-complications-of-manometric-studies-3">Potential complications of manometric studies</a></li><li><a href="#ov-reporting-of-results-4">Reporting of results</a></li></ol><h4 style="margin-top:20px">5 tests</h4><ol><li><a href="#t-esophageal-function-studies-1">Esophageal Function Studies</a></li><li><a href="#t-plethysmography-arterial-2">Plethysmography, Arterial</a></li><li><a href="#t-tilt-table-testing-3">Tilt-Table Testing</a></li><li><a href="#t-tourniquet-test-4">Tourniquet Test</a></li><li><a href="#t-urodynamic-studies-5">Urodynamic Studies</a></li></ol></div>
+  <div class="rail-foot">
+    <button class="tool-btn wide" data-toggle="jewel" title="Switch between the jewel-glass look and a plain high-contrast one">💎 Jewel look</button>
+  </div>
+</aside>
+<div class="rail-scrim" id="railScrim" hidden></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="navtoggle" id="navToggle" aria-label="Show or hide the menu" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand brand-top" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
+    <div class="tools">
+      <button class="tool-btn" data-toggle="big-text" title="Larger text">A+</button>
+      <button class="tool-btn" data-toggle="dyslexic" title="Easier-to-read font">Aa</button>
+      <button class="tool-btn" data-toggle="art-bold" title="Show the background art more strongly">Art</button>
+      <button class="tool-btn" data-toggle="focus" title="Dim everything except the card you opened">Focus</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">Chapter 6 · Manometry</div>
+    <h1>📏 Manometric Studies</h1>
+    <p class="lede">Pressure measurements. Swallowing, blood vessels, bladder — anything where "how hard is it squeezing?" is the question.</p>
+    <div class="head-art" aria-hidden="true"></div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="layout">
+    <main>
+      <div class="section-label">Start here — the overview</div>
+      
+      <article class="test-card" id="ov-overview-1" data-search="overview" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Overview</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#0a8f9c;--sbg:#e2f6f8"><div class="sec-body" style="border-top:0"><p>This group of studies measures function rather than anatomy. Manometry records the pressures generated by muscle and sphincter activity in a hollow organ, most often the esophagus, and shows whether contractions are strong, coordinated, and properly timed with sphincter relaxation. Vascular studies such as arterial plethysmography record how blood volume changes in a limb with each heartbeat, revealing where flow is obstructed even when the skin and pulses look deceptively normal. Tilt-table testing provokes and monitors the autonomic reflexes that control blood pressure and heart rate in the upright position, and the tourniquet test is a bedside stress on the capillary bed itself. What unites them is that each applies a controlled physiologic challenge, a swallow, a cuff, a change in position, or sustained venous pressure, and records how the body responds. Because the patient is awake and participating in nearly all of them, patient cooperation and clear teaching are as important to the result as the equipment is.</p></div></div></div></article><article class="test-card" id="ov-procedural-care-for-manometric-studies-2" data-search="procedural care for manometric studies" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Procedural care for manometric studies</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#0a8f9c;--sbg:#e2f6f8"><div class="sec-body" style="border-top:0"><p>Preparation for a manometric study centers on an empty stomach, a cooperative patient, and a medication list that will not distort the tracing. Confirm the signed informed consent, keep the patient NPO for the ordered interval, usually 8 to 12 hours for esophageal studies, and verify which motility agents, acid suppressants, sedatives, opioids, anticholinergics, calcium channel blockers, and nitrates the provider wants held and for how long. Explain the catheter route and the sensations honestly, because a patient who understands that gagging is expected and temporary tolerates transnasal passage far better than one who is surprised by it. Establish baseline vital signs, remove dentures, position the patient with the head slightly elevated, and keep suction and emergency equipment within reach. During the study your role is coaching, not passivity: prompt swallows on cue, encourage slow nasal breathing, monitor for vasovagal symptoms and respiratory distress, and observe for pain that is out of proportion to the procedure. Afterward, withhold oral intake until the gag reflex has returned if topical anesthetic was used, monitor for complications, restart held medications, and document how the patient tolerated the study.</p></div></div></div></article><article class="test-card" id="ov-potential-complications-of-manometric-studies-3" data-search="potential complications of manometric studies" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Potential complications of manometric studies</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#0a8f9c;--sbg:#e2f6f8"><div class="sec-body" style="border-top:0"><p>These procedures are generally safe, but the complications share a theme of instrumentation and autonomic response. Passing a catheter through the nose and esophagus can cause epistaxis, sore throat, hoarseness, gagging, vomiting, and aspiration, and aspiration is the reason NPO status is enforced so strictly. Vagal stimulation during catheter passage can produce bradycardia, hypotension, and a vasovagal faint, and transient arrhythmias occur occasionally. Esophageal perforation is rare but is the complication you must be able to recognize: severe or persistent chest, neck, or back pain, fever, dysphagia, subcutaneous crepitus over the neck or chest, and tachycardia after the procedure require immediate provider notification and NPO status. Tilt-table testing carries its own set, including syncope with fall injury, prolonged hypotension, profound bradycardia or asystole, vomiting, and drug effects from isoproterenol or nitroglycerin, which is why the patient is strapped, monitored, and never left alone. For any of these studies, post-procedure assessment is not a formality; most serious complications declare themselves in the first hours through pain, fever, respiratory change, or hemodynamic instability.</p></div></div></div></article><article class="test-card" id="ov-reporting-of-results-4" data-search="reporting of results" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Reporting of results</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#0a8f9c;--sbg:#e2f6f8"><div class="sec-body" style="border-top:0"><p>Functional studies produce waveforms and pressure numbers rather than simple positive or negative answers, and the report is an interpretation written by the physician who reviewed the tracings. Esophageal manometry reports resting and relaxation pressures at the sphincters, the amplitude and speed of peristaltic waves, and a named motility pattern such as achalasia, ineffective esophageal motility, or a spastic disorder. Ambulatory pH and impedance studies report the percentage of time acid was present in the distal esophagus and whether the patient's diary symptoms correlated in time with reflux episodes, which is why accurate patient diary entries matter so much. Arterial plethysmography reports segmental pressures, calculated indices such as the ankle-brachial index, and a description of waveform contour at each level, with the level of obstruction identified. Tilt-table results describe the entire blood pressure and heart rate sequence, whether symptoms were reproduced, and the physiologic pattern, and the report should state the medications and provocative agents used. Preliminary impressions may be available immediately, while the formal reading follows; document what was reported, when, and by whom, and make sure the trend of prior studies is available for comparison, because change over time often carries more meaning than any single number.</p></div></div></div></article><article class="test-card" id="t-esophageal-function-studies-1" data-search="esophageal function studies esophageal manometry efs high-resolution manometry acid perfusion (bernstein) test esophageal ph monitoring" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">1</span><span class="test-title"><h3>Esophageal Function Studies</h3><span class="aka">also called: Esophageal manometry, EFS, High-resolution manometry, Acid perfusion (Bernstein) test, Esophageal pH monitoring</span></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="glance"><div class="glance-item g-normal"><b>&#9989; Normal</b>Coordinated peristaltic waves that travel down the esophagus after each swallow, a lower esophageal sphincter resting pressure of roughly 10 to 20 mm Hg, and complete sphincter relaxation with swallowing. Acid perfusion reproduces no pain, and distal esophageal pH stays above 4 for nearly all of a monitored period.</div><div class="glance-item g-why"><b>&#127919; Why it's ordered</b>These studies evaluate dysphagia, noncardiac chest pain once cardiac causes are excluded, refractory reflux symptoms, and suspected motility disorders such as achalasia, diffuse esophageal spasm, hypercontractile esophagus, ineffective motility, and esophageal involvement in scleroderma. They are also done before antireflux surgery to map motility, because a patient with poor peristalsis may not tolerate a tight fundoplication.</div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9989;</span>Normal Findings<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Coordinated peristaltic waves that travel down the esophagus after each swallow, a lower esophageal sphincter resting pressure of roughly 10 to 20 mm Hg, and complete sphincter relaxation with swallowing. Acid perfusion reproduces no pain, and distal esophageal pH stays above 4 for nearly all of a monitored period.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#127919;</span>Why It's Ordered<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>These studies evaluate dysphagia, noncardiac chest pain once cardiac causes are excluded, refractory reflux symptoms, and suspected motility disorders such as achalasia, diffuse esophageal spasm, hypercontractile esophagus, ineffective motility, and esophageal involvement in scleroderma. They are also done before antireflux surgery to map motility, because a patient with poor peristalsis may not tolerate a tight fundoplication.</p></div></div><div class="sec" style="--sc:#4b46c9;--sbg:#eceafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128214;</span>How It Works<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>A thin flexible catheter carrying pressure sensors is passed through the nose into the stomach and then slowly withdrawn across the lower esophageal sphincter and up the esophagus. The patient takes measured swallows of water while the sensors record the strength, timing, and coordination of contractions and the pressure and relaxation of the sphincter. Related components may add acid instillation to see whether the patient's typical pain is reproduced, or a pH or impedance sensor left in place for 24 hours to quantify reflux episodes.</p></div></div><div class="sec" style="--sc:#d92c3c;--sbg:#fdeaec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9940;</span>Do NOT Do This If&hellip;<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Patients who cannot cooperate with swallowing instructions, those with severe esophageal obstruction, stricture, or known perforation, and those with significant uncorrected coagulopathy or esophageal varices. Recent esophageal or gastric surgery is a relative contraindication, and the acid perfusion component is avoided in unstable cardiac patients.</p></div></div><div class="sec" style="--sc:#c9490b;--sbg:#fdeee4"><button class="sec-head" aria-expanded="false"><span class="sico">&#9888;&#65039;</span>What Can Go Wrong<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Vasovagal response with bradycardia and hypotension during catheter passage, epistaxis, gagging and vomiting with aspiration risk, transient arrhythmia, sore throat, and rarely esophageal perforation.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128256;</span>What Skews the Result<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Medications that alter motility distort the tracing, including calcium channel blockers, nitrates, anticholinergics, prokinetics, opioids, sedatives, and antispasmodics. Proton pump inhibitors and H2 blockers must be held for the pH component or reflux will be masked. Food or fluid in the stomach, smoking, alcohol, and caffeine before the study, and patient anxiety with poor swallow cooperation all degrade the results.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#128309;</span>Before<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Verify the signed consent and that the provider has ordered which medications to hold and for how long, typically motility agents and acid suppressants for a period of days. Keep the patient NPO for approximately 8 to 12 hours, or overnight, and confirm no smoking beforehand. Explain the catheter route through the nose in concrete terms, including that the patient will be awake, will be able to breathe normally, and will be asked to swallow on cue, because cooperation determines the quality of the study. Obtain baseline vital signs and remove dentures.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128992;</span>During<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>The patient sits or lies with the head slightly elevated while the catheter is passed transnasally; encourage slow nasal breathing and swallowing on command to ease passage. Your role is to coach breathing, provide small sips of water only as directed, monitor for vasovagal symptoms, arrhythmia, and respiratory distress, suction as needed, and keep the patient oriented to what comes next. If a 24-hour pH or impedance probe is placed, teach the patient to record meals, position changes, and symptom times in the diary, because the tracing is interpreted against those entries.</p></div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#128994;</span>After<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Withhold food and fluids until the gag reflex has returned if a topical anesthetic was used to the throat or nose. Monitor for sore throat, hoarseness, nosebleed, chest pain, fever, subcutaneous crepitus, or dysphagia, and report these promptly because they can signal perforation. Resume the held medications and the usual diet once cleared, and remove or arrange removal of an ambulatory probe at the scheduled time.</p></div></div><div class="sec" style="--sc:#7b3fd4;--sbg:#f2eafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128202;</span>What the Results Mean<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Absent peristalsis with a lower esophageal sphincter that fails to relax indicates achalasia. Simultaneous, repetitive, high-amplitude contractions suggest diffuse esophageal spasm or a hypercontractile pattern. Low-amplitude, ineffective peristalsis with a weak sphincter is characteristic of scleroderma and other connective tissue disease and predisposes to severe reflux. A low resting sphincter pressure with excess acid exposure on pH monitoring confirms gastroesophageal reflux disease, and a positive acid perfusion test indicates that the patient's chest pain is esophageal in origin.</p></div></div><div class="sec" style="--sc:#d1197f;--sbg:#fdeaf4"><button class="sec-head" aria-expanded="false"><span class="sico">&#11088;</span>Clinical Priorities<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Confirm strict NPO status and a protected airway before the catheter is passed, and stop the procedure and reassess for perforation if the patient develops chest pain, fever, or subcutaneous emphysema afterward.</p></div></div></div></article><article class="test-card" id="t-plethysmography-arterial-2" data-search="plethysmography (arterial) arterial plethysmography pulse volume recording pvr segmental limb pressures" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">2</span><span class="test-title"><h3>Plethysmography (Arterial)</h3><span class="aka">also called: Arterial plethysmography, Pulse volume recording, PVR, Segmental limb pressures</span></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="glance"><div class="glance-item g-normal"><b>&#9989; Normal</b>Pulse volume waveforms with a sharp systolic upstroke, a distinct dicrotic notch on the downslope, and a rapid return toward baseline, recorded at each level of the limb. Segmental pressures fall only slightly from one cuff level to the next, with no large gradient between adjacent segments, and the ankle-brachial index sits in roughly the 0.9 to 1.3 range.</div><div class="glance-item g-why"><b>&#127919; Why it's ordered</b>It is used to detect, localize, and grade peripheral arterial occlusive disease in patients with intermittent claudication, rest pain, nonhealing ulcers, or gangrene. Because cuffs are placed at several levels of the limb, the study shows not only that flow is reduced but at which level the obstruction lies, which guides whether and where revascularization would help. It is also used to assess healing potential of a wound or an amputation level and to monitor bypass grafts and stents over time.</div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9989;</span>Normal Findings<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Pulse volume waveforms with a sharp systolic upstroke, a distinct dicrotic notch on the downslope, and a rapid return toward baseline, recorded at each level of the limb. Segmental pressures fall only slightly from one cuff level to the next, with no large gradient between adjacent segments, and the ankle-brachial index sits in roughly the 0.9 to 1.3 range.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#127919;</span>Why It's Ordered<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>It is used to detect, localize, and grade peripheral arterial occlusive disease in patients with intermittent claudication, rest pain, nonhealing ulcers, or gangrene. Because cuffs are placed at several levels of the limb, the study shows not only that flow is reduced but at which level the obstruction lies, which guides whether and where revascularization would help. It is also used to assess healing potential of a wound or an amputation level and to monitor bypass grafts and stents over time.</p></div></div><div class="sec" style="--sc:#4b46c9;--sbg:#eceafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128214;</span>How It Works<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Blood pressure cuffs are placed at successive levels of the limb, such as high thigh, low thigh, calf, and ankle, and connected to a recorder. With each heartbeat the limb segment momentarily increases in volume, and the cuff senses that change and traces it as a waveform. A flattened, rounded waveform with a slow upstroke and loss of the dicrotic notch, or a pressure drop between one cuff level and the next, marks the segment where obstruction is located.</p></div></div><div class="sec" style="--sc:#d92c3c;--sbg:#fdeaec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9940;</span>Do NOT Do This If&hellip;<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Do not apply cuffs over an open wound, burn, ulcer, cast, recent skin graft, or a fresh surgical incision or bypass site. Avoid cuff inflation on a limb with a known deep vein thrombosis or on an extremity with a dialysis access, and use caution in severe rest pain where cuff pressure is poorly tolerated.</p></div></div><div class="sec" style="--sc:#c9490b;--sbg:#fdeee4"><button class="sec-head" aria-expanded="false"><span class="sico">&#9888;&#65039;</span>What Can Go Wrong<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Minimal. The study is noninvasive and involves no needles, contrast, or radiation. The main discomfort is transient pressure from cuff inflation.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128256;</span>What Skews the Result<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Nicotine and caffeine cause vasoconstriction and should be avoided for at least an hour or two before the study. A cold room or a cold extremity lowers flow and falsely worsens the tracing, so the patient must be warm and rested supine for a period before recording. Low cardiac output, hypotension, arrhythmia, and patient movement distort waveforms. Heavily calcified, noncompressible vessels, common in long-standing diabetes and end-stage renal disease, resist cuff occlusion and produce falsely elevated segmental pressures and an artificially high ankle-brachial index, so waveforms and toe pressures are more trustworthy than the numbers in those patients.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#128309;</span>Before<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Explain that the test is painless and noninvasive, involves no dye or needles, and takes roughly 30 to 60 minutes. Instruct the patient to avoid smoking and caffeine beforehand and to wear or change into clothing that allows the limbs to be exposed. Keep the room warm, have the patient rest supine for about 15 to 20 minutes before recording, and document baseline pulses, skin color, temperature, capillary refill, and any ulcers or dressings so the technologist can avoid them.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128992;</span>During<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Cuffs are applied at each level and inflated in sequence while waveforms and pressures are recorded, sometimes with a Doppler probe at the ankle and toe. The patient must lie still and quiet, since talking and movement create artifact. Your role is positioning, keeping the patient warm and comfortable, protecting wounds and grafts from cuff placement, and reassuring the patient during the brief tightness of inflation. Some protocols add recordings after treadmill exercise to unmask disease that is silent at rest.</p></div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#128994;</span>After<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Remove the cuffs, reassess skin integrity and distal pulses, and compare findings with the pre-test baseline. No activity restriction or recovery period is needed. Reinforce teaching about risk factor modification, smoking cessation, foot care, and reporting new rest pain, color change, coldness, or a nonhealing wound.</p></div></div><div class="sec" style="--sc:#7b3fd4;--sbg:#f2eafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128202;</span>What the Results Mean<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Blunted, rounded waveforms with a lost dicrotic notch indicate arterial obstruction proximal to or at that segment, and a significant pressure drop between adjacent cuffs localizes the lesion. Progressive dampening from thigh to ankle suggests multilevel disease. A flat or nearly absent waveform indicates critical limb ischemia and poor healing potential. Falsely high pressures with abnormal waveforms in a diabetic or dialysis patient suggest medial calcification, and toe pressures or toe-brachial index should be used instead.</p></div></div><div class="sec" style="--sc:#d1197f;--sbg:#fdeaf4"><button class="sec-head" aria-expanded="false"><span class="sico">&#11088;</span>Clinical Priorities<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Keep the patient warm and resting supine and screen the limb for wounds, grafts, casts, and clot before any cuff is inflated, because cold, movement, or an unsafe cuff site invalidates or endangers the study.</p></div></div></div></article><article class="test-card" id="t-tilt-table-testing-3" data-search="tilt-table testing head-up tilt test hut passive tilt test upright tilt table study" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">3</span><span class="test-title"><h3>Tilt-Table Testing</h3><span class="aka">also called: Head-up tilt test, HUT, Passive tilt test, Upright tilt table study</span></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="glance"><div class="glance-item g-normal"><b>&#9989; Normal</b>Blood pressure and heart rate remain stable through the upright period, with no reproduction of syncope or presyncope. A modest heart rate rise on tilting is expected; a normal study is one in which the patient stays symptom-free and hemodynamically stable for the full protocol.</div><div class="glance-item g-why"><b>&#127919; Why it's ordered</b>It is used to evaluate unexplained recurrent syncope or near-syncope after cardiac and neurologic causes have been reasonably excluded. It distinguishes vasovagal, or neurocardiogenic, syncope from orthostatic hypotension, autonomic failure, and postural orthostatic tachycardia syndrome, and it can identify a predominantly cardioinhibitory pattern, which changes management. Reproducing the patient's actual symptoms under monitoring is the point of the test.</div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9989;</span>Normal Findings<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Blood pressure and heart rate remain stable through the upright period, with no reproduction of syncope or presyncope. A modest heart rate rise on tilting is expected; a normal study is one in which the patient stays symptom-free and hemodynamically stable for the full protocol.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#127919;</span>Why It's Ordered<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>It is used to evaluate unexplained recurrent syncope or near-syncope after cardiac and neurologic causes have been reasonably excluded. It distinguishes vasovagal, or neurocardiogenic, syncope from orthostatic hypotension, autonomic failure, and postural orthostatic tachycardia syndrome, and it can identify a predominantly cardioinhibitory pattern, which changes management. Reproducing the patient's actual symptoms under monitoring is the point of the test.</p></div></div><div class="sec" style="--sc:#4b46c9;--sbg:#eceafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128214;</span>How It Works<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>The patient is secured supine to a motorized table with a footboard, then tilted head-up to roughly 60 to 80 degrees and held there while blood pressure, heart rate, and rhythm are recorded continuously. Standing upright without the leg muscle pumping that normally supports venous return causes blood to pool in the lower body, and in a susceptible patient the compensatory reflex overshoots, producing sudden vasodilation, bradycardia, hypotension, and syncope. If the passive phase is negative, a provocative agent such as intravenous isoproterenol or sublingual nitroglycerin may be given and the tilt repeated.</p></div></div><div class="sec" style="--sc:#d92c3c;--sbg:#fdeaec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9940;</span>Do NOT Do This If&hellip;<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Severe aortic stenosis or other critical outflow obstruction, severe mitral stenosis, known critical coronary artery disease, severe cerebrovascular stenosis, uncontrolled hypertension, unstable arrhythmia or acute coronary syndrome, and pregnancy. Provocative agents are additionally avoided in significant ischemic heart disease and in tachyarrhythmia.</p></div></div><div class="sec" style="--sc:#c9490b;--sbg:#fdeee4"><button class="sec-head" aria-expanded="false"><span class="sico">&#9888;&#65039;</span>What Can Go Wrong<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Syncope with fall risk, prolonged hypotension, profound bradycardia and even transient asystole, nausea and vomiting with aspiration risk, headache and flushing from nitroglycerin, and palpitations, tremor, chest pain, or arrhythmia from isoproterenol. Serious events are uncommon but the reason continuous monitoring and immediate table-lowering capability are mandatory.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128256;</span>What Skews the Result<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Antihypertensives, diuretics, vasodilators, beta blockers, nitrates, and antiarrhythmics blunt or exaggerate the response and are usually held with provider direction. Dehydration and volume depletion make a false-positive result more likely, and recent caffeine, alcohol, or a large meal alter the response. Anxiety, room temperature, an unnecessarily long or short tilt duration, and the choice of provocative agent all affect whether the study reproduces symptoms.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#128309;</span>Before<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Verify the signed consent and the medication hold orders. Keep the patient NPO for about 4 to 8 hours, mainly because vomiting is common during a positive test. Establish intravenous access before the study begins and attach continuous ECG and blood pressure monitoring. Take a careful history of what the patient's typical episode feels like, since the study is judged partly on whether those symptoms are reproduced. Explain that fainting during the test is an expected possible outcome, that the table will be lowered immediately if it happens, and that staff will be at the bedside the entire time.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128992;</span>During<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Secure the patient with straps and a footboard before any tilting, and confirm that emergency equipment, intravenous fluids, and atropine are immediately available. Record baseline supine vital signs, then monitor blood pressure, heart rate, and rhythm continuously through the upright phase, which commonly lasts 20 to 45 minutes. Ask the patient repeatedly about lightheadedness, nausea, visual changes, warmth, and palpitations, and watch for pallor, diaphoresis, and yawning, which often precede a drop. If syncope, significant hypotension, or bradycardia occurs, return the table to supine or head-down immediately and support the airway and circulation.</p></div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#128994;</span>After<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Keep the patient supine until blood pressure, heart rate, and mental status return to baseline, then sit and stand them gradually with assistance because the risk of falling persists. Offer oral fluids once alert and able to swallow, and monitor for lingering nausea, headache, or fatigue. Document the entire hemodynamic sequence, the time and character of any symptoms, whether they matched the patient's usual episode, and any medication given. Resume held medications as ordered and reinforce teaching on prodrome recognition, counterpressure maneuvers, hydration, salt intake if prescribed, and avoiding prolonged standing.</p></div></div><div class="sec" style="--sc:#7b3fd4;--sbg:#f2eafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128202;</span>What the Results Mean<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>A sudden drop in blood pressure with bradycardia that reproduces the patient's symptoms indicates vasovagal or neurocardiogenic syncope, and the pattern may be labeled predominantly vasodepressor, cardioinhibitory, or mixed. A sustained fall in blood pressure within the first few minutes of tilt without an adequate heart rate rise indicates orthostatic hypotension, often from autonomic dysfunction, volume depletion, or medication. A sustained heart rate increase of a large magnitude without significant hypotension, accompanied by typical symptoms, suggests postural orthostatic tachycardia syndrome. A negative study does not rule out syncope but shifts the workup elsewhere.</p></div></div><div class="sec" style="--sc:#d1197f;--sbg:#fdeaf4"><button class="sec-head" aria-expanded="false"><span class="sico">&#11088;</span>Clinical Priorities<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Never leave the patient unattended on the tilt table, and be ready to return the table to supine the instant hypotension, bradycardia, or symptoms appear.</p></div></div></div></article><article class="test-card" id="t-tourniquet-test-4" data-search="tourniquet test capillary fragility test rumpel-leede test capillary resistance test" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">4</span><span class="test-title"><h3>Tourniquet Test</h3><span class="aka">also called: Capillary fragility test, Rumpel-Leede test, Capillary resistance test</span></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="glance"><div class="glance-item g-normal"><b>&#9989; Normal</b>Few or no petechiae appear after the cuff is released. A commonly used threshold considers fewer than 10 petechiae within a 2.5-centimeter, or 1-inch, square area on the forearm to be normal, though institutions and protocols define the counting area and cutoff slightly differently, so use the standard your setting specifies.</div><div class="glance-item g-why"><b>&#127919; Why it's ordered</b>It is a bedside screen for capillary fragility and defective platelet-capillary interaction, used when a patient has unexplained bruising, petechiae, or bleeding and formal coagulation studies are pending or unavailable. Its best-known modern use is in evaluating suspected dengue, where a positive result is one of the clinical warning features used in resource-limited settings. It is a crude screen and never replaces a platelet count and coagulation panel.</div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9989;</span>Normal Findings<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Few or no petechiae appear after the cuff is released. A commonly used threshold considers fewer than 10 petechiae within a 2.5-centimeter, or 1-inch, square area on the forearm to be normal, though institutions and protocols define the counting area and cutoff slightly differently, so use the standard your setting specifies.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#127919;</span>Why It's Ordered<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>It is a bedside screen for capillary fragility and defective platelet-capillary interaction, used when a patient has unexplained bruising, petechiae, or bleeding and formal coagulation studies are pending or unavailable. Its best-known modern use is in evaluating suspected dengue, where a positive result is one of the clinical warning features used in resource-limited settings. It is a crude screen and never replaces a platelet count and coagulation panel.</p></div></div><div class="sec" style="--sc:#4b46c9;--sbg:#eceafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128214;</span>How It Works<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>A blood pressure cuff on the upper arm is inflated to a pressure between the patient's systolic and diastolic readings, roughly the midpoint, and held there for about 5 minutes. That pressure obstructs venous return while arterial inflow continues, raising pressure inside the capillaries. If the capillary walls are fragile or platelets are too few or dysfunctional, blood leaks out and appears as pinpoint petechiae, which are then counted within a defined area distal to the cuff.</p></div></div><div class="sec" style="--sc:#d92c3c;--sbg:#fdeaec"><button class="sec-head" aria-expanded="false"><span class="sico">&#9940;</span>Do NOT Do This If&hellip;<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Do not perform on an arm with lymphedema, a prior axillary node dissection or mastectomy on that side, a dialysis fistula or graft, an intravenous line, cellulitis, a wound, or a known or suspected deep vein thrombosis. Avoid it in a patient who is actively bleeding, severely thrombocytopenic, or who has already had a positive result, since repeating it adds risk without new information.</p></div></div><div class="sec" style="--sc:#c9490b;--sbg:#fdeee4"><button class="sec-head" aria-expanded="false"><span class="sico">&#9888;&#65039;</span>What Can Go Wrong<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Local discomfort, persistent petechiae or ecchymosis, and rarely hematoma or worsening of bleeding in a severely thrombocytopenic patient. Prolonged or excessive cuff inflation can cause more extensive purpura and transient nerve or vascular compression.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128256;</span>What Skews the Result<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Aspirin, NSAIDs, anticoagulants, and antiplatelet agents increase petechiae and cause false positives, as do chronic corticosteroid use, vitamin C deficiency, uremia, and hereditary connective tissue disorders. Fragile, thin, or sun-damaged skin in older adults and in postmenopausal women raises the count independently of any hematologic problem. Menstruation, recent cuff inflation on the same arm, an inflation pressure that is too high or held too long, poor lighting, and inconsistent counting area all distort the result.</p></div></div><div class="sec" style="--sc:#1668d8;--sbg:#e8f1fe"><button class="sec-head" aria-expanded="false"><span class="sico">&#128309;</span>Before<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Explain the purpose and that the arm will feel tight for about 5 minutes and that small red dots may appear and will fade over several days. Take an accurate baseline blood pressure to calculate the inflation pressure, and inspect and document any petechiae, bruises, or lesions already present on the forearm so they are not counted as new. Review medications for antiplatelet and anticoagulant agents and note them. Select an arm free of lines, wounds, fistulas, and lymphedema.</p></div></div><div class="sec" style="--sc:#b56a00;--sbg:#fff3dc"><button class="sec-head" aria-expanded="false"><span class="sico">&#128992;</span>During<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Inflate the cuff to the midpoint between systolic and diastolic pressure and maintain it for the full 5 minutes without exceeding it. Stay with the patient, watch for pain, numbness, tingling, or marked color change, and release early if these develop. Release the cuff, wait briefly for the skin color to return toward normal, then count the petechiae within the defined square area on the volar forearm distal to the cuff, using good lighting and comparing against the pre-test skin markings.</p></div></div><div class="sec" style="--sc:#0f8a4d;--sbg:#e5f7ec"><button class="sec-head" aria-expanded="false"><span class="sico">&#128994;</span>After<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Remove the cuff, elevate and assess the arm for circulation, sensation, and swelling, and document the petechiae count, the counting area used, and the inflation pressure and duration. Tell the patient the petechiae will resolve over several days and to report increasing bruising, swelling, numbness, or bleeding. Do not repeat the test on the same arm, and follow up on the platelet count and coagulation studies, which carry far more diagnostic weight.</p></div></div><div class="sec" style="--sc:#7b3fd4;--sbg:#f2eafd"><button class="sec-head" aria-expanded="false"><span class="sico">&#128202;</span>What the Results Mean<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>A positive test indicates increased capillary fragility or impaired platelet function. Causes include thrombocytopenia of any origin, thrombocytopathy, dengue and other viral hemorrhagic illnesses, von Willebrand disease, disseminated intravascular coagulation, vitamin C deficiency, chronic steroid use, senile purpura, and vasculitis. A negative test does not exclude a bleeding disorder and should never delay definitive laboratory testing.</p></div></div><div class="sec" style="--sc:#d1197f;--sbg:#fdeaf4"><button class="sec-head" aria-expanded="false"><span class="sico">&#11088;</span>Clinical Priorities<span class="mini-chev">&#9660;</span></button><div class="sec-body"><p>Inflate only to the midpoint between systolic and diastolic pressure for no more than 5 minutes, and do not perform the test at all on a compromised arm or an actively bleeding patient.</p></div></div></div></article><article class="test-card" id="ov-my-picture-notes" data-search="my notes pictures removed" style="--c:#0a8f9c;--cbg:#e2f6f8"><button class="test-head" aria-expanded="false"><span class="test-num">&#9998;</span><span class="test-title"><h3>My notes from the removed pictures</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#0a8f9c;--sbg:#e2f6f8"><div class="sec-body" style="border-top:0"><div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Allen test — before you touch a radial artery — Confirms collateral ulnar flow. Colour returns in 5–7 seconds = pass. No return in 10 = do not stick.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div></div></div></div></article>
+    </main>
+  </div>
+</div>
+<footer class="footer"><div class="wrap">
+  Written by me from my own study notes. Reference intervals are checked against current laboratory sources. 
+  <br>Study aid only — always follow your facility's protocols and current clinical guidelines.
+</div></footer>
+</div>
+<button class="backtop" title="Back to top">↑</button>
+<script src="../assets/js/app.js"></script>
+<script id="a11yJS">
+/* a table wider than the screen scrolls inside its own box rather than dragging
+   the whole page sideways */
+(function(){
+  function wrap(){
+    document.querySelectorAll('table').forEach(function(t){
+      var p=t.parentNode;
+      if(!p||p.classList&&p.classList.contains('a11y-tblwrap'))return;
+      var d=document.createElement('div'); d.className='a11y-tblwrap';
+      p.insertBefore(d,t); d.appendChild(t);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wrap);
+  else wrap();
+  setTimeout(wrap,1200);   /* catch tables built by the page's own scripts */
+})();
+</script>
+<script id="navDragJS">
+(function(){
+  var nb=document.getElementById('navBtns');
+  if(!nb||nb.dataset.dragReady) return;
+  nb.dataset.dragReady='1';
+
+  /* ── 1. modifier and middle clicks must open a new tab ───────────────
+     The ABSN link called preventDefault() every time, which killed
+     ctrl/cmd/shift-click and middle-click. Let those through. */
+  function passthrough(e){
+    return e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||e.button===1;
+  }
+  nb.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    if(passthrough(e)){ e.stopImmediatePropagation(); }   /* before the page's own handler */
+  },true);
+  nb.addEventListener('auxclick',function(e){
+    var a=e.target.closest('a');
+    if(a&&e.button===1){ e.stopImmediatePropagation();
+      window.open(a.href,'_blank','noopener'); e.preventDefault(); }
+  },true);
+  /* every button in the cluster also gets a right-click / long-press menu that
+     works, because they stay real <a href> elements */
+
+  /* ── 2. a grip so it is obvious the cluster can be moved ───────────── */
+  var grip=document.createElement('button');
+  grip.id='nbGrip'; grip.type='button';
+  grip.title='Drag to move these buttons \u00b7 double-click to reset';
+  grip.setAttribute('aria-label','Move these buttons');
+  grip.textContent='\u2725';
+  nb.insertBefore(grip,nb.firstChild);
+
+  /* ── 3. drag, and remember where she put it ─────────────────────────── */
+  var KEY='nbPos';
+  function clampPos(l,t){
+    var r=nb.getBoundingClientRect();
+    var maxL=Math.max(0,window.innerWidth-r.width-4);
+    var maxT=Math.max(0,window.innerHeight-r.height-4);
+    return [Math.min(Math.max(0,l),maxL), Math.min(Math.max(0,t),maxT)];
+  }
+  function place(l,t){
+    var p=clampPos(l,t);
+    nb.style.left=p[0]+'px'; nb.style.top=p[1]+'px';
+    nb.style.right='auto'; nb.style.bottom='auto';
+  }
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify({l:parseFloat(nb.style.left)||0,
+                                                  t:parseFloat(nb.style.top)||0})); }catch(e){}
+  }
+  function reset(){
+    nb.style.left=''; nb.style.top=''; nb.style.right=''; nb.style.bottom='';
+    try{ localStorage.removeItem(KEY); }catch(e){}
+  }
+  try{
+    var s=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(s&&typeof s.l==='number') place(s.l,s.t);
+  }catch(e){}
+
+  var dragging=false,ox=0,oy=0,moved=false;
+  function down(x,y,e){
+    var r=nb.getBoundingClientRect();
+    dragging=true; moved=false; ox=x-r.left; oy=y-r.top;
+    nb.classList.add('dragging');
+    if(e&&e.preventDefault) e.preventDefault();
+  }
+  function move(x,y){
+    if(!dragging) return;
+    moved=true; place(x-ox,y-oy);
+  }
+  function up(){
+    if(!dragging) return;
+    dragging=false; nb.classList.remove('dragging');
+    if(moved) save();
+  }
+  grip.addEventListener('mousedown',function(e){ if(e.button===0) down(e.clientX,e.clientY,e); });
+  window.addEventListener('mousemove',function(e){ move(e.clientX,e.clientY); });
+  window.addEventListener('mouseup',up);
+  grip.addEventListener('touchstart',function(e){
+    var t=e.touches[0]; down(t.clientX,t.clientY,e); },{passive:false});
+  window.addEventListener('touchmove',function(e){
+    if(!dragging) return; var t=e.touches[0]; move(t.clientX,t.clientY); e.preventDefault(); },{passive:false});
+  window.addEventListener('touchend',up);
+  grip.addEventListener('dblclick',function(e){ e.preventDefault(); reset(); });
+  /* keyboard: focus the grip and nudge with the arrows */
+  grip.addEventListener('keydown',function(e){
+    var step=e.shiftKey?24:6, r=nb.getBoundingClientRect(), l=r.left, t=r.top, hit=true;
+    if(e.key==='ArrowLeft') l-=step; else if(e.key==='ArrowRight') l+=step;
+    else if(e.key==='ArrowUp') t-=step; else if(e.key==='ArrowDown') t+=step;
+    else if(e.key==='Home'||e.key==='Escape'){ reset(); e.preventDefault(); return; }
+    else hit=false;
+    if(hit){ place(l,t); save(); e.preventDefault(); }
+  });
+  window.addEventListener('resize',function(){
+    if(nb.style.left) place(parseFloat(nb.style.left),parseFloat(nb.style.top));
+  });
+
+  /* ── 4. step aside for full-screen viewers ───────────────────────────
+     Some overlays (the NUR 175 image lightbox, the drug guide drawer) sit
+     below this cluster in the stacking order, so the cluster covered their
+     Close buttons. Find them once, then just watch whether they are shown. */
+  var overlays=[];
+  try{
+    document.querySelectorAll('body *').forEach(function(el){
+      if(overlays.length>40) return;
+      if(el===nb||nb.contains(el)) return;
+      var cs=getComputedStyle(el);
+      if(cs.position!=='fixed') return;
+      var z=parseInt(cs.zIndex,10);
+      if(!(z>=1000)) return;
+      /* covers most of the screen in at least one dimension */
+      var w=parseFloat(cs.width), h=parseFloat(cs.height);
+      var full=(cs.inset==='0px'||cs.top==='0px'&&cs.left==='0px'&&cs.right==='0px'&&cs.bottom==='0px');
+      if(full||(w>=window.innerWidth*0.9&&h>=window.innerHeight*0.9)) overlays.push(el);
+    });
+  }catch(e){}
+  function check(){
+    var open=overlays.some(function(el){
+      var cs=getComputedStyle(el);
+      return cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>0.05;
+    });
+    nb.classList.toggle('hidden-by-overlay',open);
+  }
+  if(overlays.length){
+    check();
+    var t=null;
+    new MutationObserver(function(){ clearTimeout(t); t=setTimeout(check,60); })
+      .observe(document.body,{attributes:true,subtree:true,
+                              attributeFilter:['class','style','hidden']});
+  }
+})();
+</script>
+</body>
+</html>

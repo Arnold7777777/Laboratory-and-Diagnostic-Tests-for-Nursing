@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foundations: Getting Testing Right · Lab &amp; Diagnostic Tests</title>
+<meta name="description" content="Before any test happens: how specimens are handled, how you keep everyone safe, and the variables that quietly wreck a result.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="jewel nav-open">
+<style id="navDragCSS">
+#navBtns{touch-action:none}
+#navBtns.dragging{opacity:.9;cursor:grabbing}
+#navBtns.hidden-by-overlay{display:none !important}
+#nbGrip{cursor:grab;background:rgba(255,255,255,.16) !important;
+  border:1px solid rgba(255,255,255,.3) !important;color:#fff !important;
+  border-radius:22px;padding:7px 9px !important;font:900 .9rem 'Segoe UI',system-ui,sans-serif;
+  line-height:1;user-select:none;box-shadow:0 4px 14px rgba(0,0,0,.5);flex:0 0 auto}
+#nbGrip:hover{background:rgba(255,255,255,.32) !important}
+#navBtns.dragging #nbGrip{cursor:grabbing}
+@media print{#navBtns{display:none !important}}
+</style>
+<style id="a11yCSS">
+/* keep wide things inside the viewport so magnifying never forces sideways scrolling */
+img,svg,video,canvas{max-width:100%;height:auto}
+pre,code,kbd{white-space:pre-wrap;overflow-wrap:anywhere}
+.a11y-tblwrap{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+@media(max-width:1024px){
+  #nav a{white-space:normal}
+  .bar{margin-left:0 !important;margin-right:0 !important;max-width:100% !important}
+}
+
+/* rem (not em) so these can never compound down to unreadable sizes */
+small,.eyebrow,.rail-sep,.sm-txt,.tiny,.fine,.cap,.foot{font-size:.82rem}
+sub,sup{font-size:.72rem}
+
+/* keep the fixed Home/ABSN cluster from sitting on top of page titles */
+@media(max-width:1024px){
+  header h1, header p, h1:first-of-type{padding-right:92px}
+}
+@media(max-width:560px){
+  header h1, header p, h1:first-of-type{padding-right:80px}
+}
+</style>
+
+<style id="navbtnCSS">
+#navBtns{position:fixed;top:10px;right:12px;z-index:2147483000;display:flex;gap:7px;align-items:center}
+#navBtns a,#navBtns button{
+  display:inline-block;font:700 .8rem 'Segoe UI',system-ui,sans-serif;
+  padding:7px 13px;border-radius:22px;text-decoration:none;cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);box-shadow:0 4px 14px rgba(0,0,0,.5);
+  color:#fff;white-space:nowrap;line-height:1.3;
+}
+#navBtns .nbLook{background:linear-gradient(135deg,#1d4ed8,#2f6bff)}
+#navBtns .nbHome{background:linear-gradient(135deg,#5a2d82,#8e2d6b)}
+#navBtns .nbAbsn{background:linear-gradient(135deg,#0f7d6b,#12b886)}
+#navBtns a:hover,#navBtns button:hover{filter:brightness(1.15)}
+#navBtns a,#navBtns button{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+/* magnified viewports report a narrow CSS width - shed the labels early so the
+   cluster stops sitting on top of page headings */
+@media(max-width:1024px){
+  #navBtns{top:6px;right:6px;gap:5px}
+  #navBtns .nbLabel{display:none}
+  #navBtns a,#navBtns button{padding:8px 11px;font-size:1rem;line-height:1}
+}
+@media(max-width:560px){
+  #navBtns a,#navBtns button{padding:7px 9px;font-size:.95rem}
+}
+@media print{#navBtns{display:none}}
+</style>
+<div id="navBtns"><a class="nbLook" href="https://arnold7777777.github.io/NUR-198-Study-Guide/Look%20It%20Up.html" target="_blank" rel="noopener" title="Look up any topic across all your sites">&#128269;<span class="nbLabel"> Look Up</span></a><a class="nbHome" href="../index.html" title="Back to this course's study hub">&#127968;<span class="nbLabel"> Home</span></a><a class="nbAbsn" href="https://arnold7777777.github.io/ABSN-Study-Hub/" onclick="return nbToAbsn(event)" title="Close this page and go back toward the ABSN Study Hub">&#127891;<span class="nbLabel"> ABSN Hub</span></a></div>
+<script>if(window.top!==window.self){var _nb=document.getElementById("navBtns");if(_nb)_nb.style.display="none";}</script>
+<script>
+(function(){
+  var ABSN='https://arnold7777777.github.io/ABSN-Study-Hub/';
+  window.nbToAbsn=function(ev){
+    if(ev&&ev.preventDefault)ev.preventDefault();
+    /* On a sub-page: try to close this tab so the study hub behind it is revealed.
+       Browsers only allow close() on script-opened tabs, so fall back to navigating. */
+    try{ window.close(); }catch(e){}
+    setTimeout(function(){ if(!window.closed) window.location.href=ABSN; },120);
+    return false;
+  };
+})();
+</script>
+
+<div class="progress"></div>
+
+<aside class="railnav" id="railnav" aria-label="Site navigation">
+  <div class="rail-head">
+    <a class="brand" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
+  </div>
+  <nav class="rail-links"><a href="../index.html"><span class="ni">🏠</span><span>Home</span></a><a href="foundations.html" class="active" style="--c:#1668d8"><span class="ni">🧭</span><span><b>Ch. 1</b> Foundations</span></a><a href="endoscopy.html" style="--c:#7b3fd4"><span class="ni">🔦</span><span><b>Ch. 4</b> Endoscopy</span><em>14</em></a><a href="manometry.html" style="--c:#0a8f9c"><span class="ni">📏</span><span><b>Ch. 6</b> Manometry</span><em>5</em></a><a href="nuclear.html" style="--c:#b56a00"><span class="ni">☢️</span><span><b>Ch. 8</b> Nuclear Scans</span><em>22</em></a><a href="electro.html" style="--c:#d1197f"><span class="ni">⚡</span><span><b>Ch. 3</b> Electrodiagnostic</span><em>13</em></a><a href="micro.html" style="--c:#0f8a4d"><span class="ni">🔬</span><span><b>Ch. 7</b> Micro &amp; Biopsy</span><em>35</em></a><a href="stool.html" style="--c:#8a5a2b"><span class="ni">🧪</span><span><b>Ch. 9</b> Stool Tests</span><em>7</em></a><a href="bloodwork.html" style="--c:#d92c3c"><span class="ni">🩸</span><span>Blood Work</span><em>21</em></a><a href="fluids.html" style="--c:#0a8f9c"><span class="ni">💧</span><span>Fluids &amp; ABGs</span><em>23</em></a><a href="find-a-test.html" style="--c:#4b46c9"><span class="ni">🔎</span><span>Find a Test</span></a><a href="lab-values.html" style="--c:#d92c3c"><span class="ni">📊</span><span>Visual Reference</span><em>38</em></a></nav>
+  <div class="rail-toc sidebar"><div class="rail-sep">On this page</div><h4>Overview</h4><ol><li><a href="#ov-overview-1">Overview</a></li><li><a href="#ov-coding-for-diagnostic-and-laboratory-tests-2">Coding for diagnostic and laboratory tests</a></li><li><a href="#ov-genetic-testing-3">Genetic testing</a></li><li><a href="#ov-laboratory-methods-4">Laboratory methods</a></li><li><a href="#ov-standard-precautions-5">Standard precautions</a></li><li><a href="#ov-cultural-sensitivity-in-testing-6">Cultural sensitivity in testing</a></li><li><a href="#ov-age-related-concerns-in-the-elderly-7">Age-related concerns in the elderly</a></li><li><a href="#ov-proper-sequencing-and-scheduling-of-tests-8">Proper sequencing and scheduling of tests</a></li><li><a href="#ov-procedure-and-patient-care-9">Procedure and patient care</a></li></ol></div>
+  <div class="rail-foot">
+    <button class="tool-btn wide" data-toggle="jewel" title="Switch between the jewel-glass look and a plain high-contrast one">💎 Jewel look</button>
+  </div>
+</aside>
+<div class="rail-scrim" id="railScrim" hidden></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="navtoggle" id="navToggle" aria-label="Show or hide the menu" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand brand-top" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
+    <div class="tools">
+      <button class="tool-btn" data-toggle="big-text" title="Larger text">A+</button>
+      <button class="tool-btn" data-toggle="dyslexic" title="Easier-to-read font">Aa</button>
+      <button class="tool-btn" data-toggle="art-bold" title="Show the background art more strongly">Art</button>
+      <button class="tool-btn" data-toggle="focus" title="Dim everything except the card you opened">Focus</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">Chapter 1 · Foundations</div>
+    <h1>🧭 Foundations: Getting Testing Right</h1>
+    <p class="lede">Before any test happens: how specimens are handled, how you keep everyone safe, and the variables that quietly wreck a result.</p>
+    <div class="head-art" aria-hidden="true"></div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="layout">
+    <main>
+      <div class="section-label">Start here — the overview</div>
+      <div class="bulk"><button class="tool-btn" data-action="expand-all">Expand all</button><button class="tool-btn" data-action="collapse-all">Collapse all</button></div>
+      <article class="test-card" id="ov-overview-1" data-search="overview" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Overview</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Diagnostic testing exists to answer a clinical question, and every test you prepare a patient for should have one. Tests are used to screen apparently healthy people for disease, to confirm or exclude a suspected diagnosis, to stage or grade a known condition, to monitor response to therapy, and to detect complications and drug toxicity. No test is perfect: sensitivity describes how well a test finds disease when it is present, specificity describes how well it clears people who do not have the disease, and both false positives and false negatives carry real consequences for the patient. Results are interpreted against a reference range derived from a healthy population, which means a small percentage of healthy people will fall outside it, and a value inside it does not guarantee health. Your role spans the entire process: preparing and educating the patient, ensuring correct specimen collection and identification, safeguarding the patient during the procedure, recognizing critical values and complications, and documenting accurately. A perfectly performed laboratory analysis cannot rescue a specimen collected from the wrong patient, at the wrong time, or in the wrong tube.</p></div></div></div></article><article class="test-card" id="ov-coding-for-diagnostic-and-laboratory-tests-2" data-search="coding for diagnostic and laboratory tests" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Coding for diagnostic and laboratory tests</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Every test that is ordered is also billed, and the codes attached to it determine whether it is covered. Procedures and laboratory tests are identified by procedural codes, commonly CPT codes, while the reason for the test is captured by a diagnosis code, currently the ICD-10-CM system. The two must agree: a payer approves a test when the diagnosis code establishes medical necessity for the procedure code, and denies it when the pairing does not justify the test. This is why an order that says only routine or rule out is inadequate, and why the documented signs, symptoms, or established diagnosis in the chart must support what was ordered. Screening tests and diagnostic tests are coded differently even when the laboratory work is identical, since the same blood test performed for screening in an asymptomatic patient and for evaluation of symptoms carries a different justification. As the nurse, you rarely assign codes, but your documentation of the patient's symptoms, the indication given by the provider, and the exact test performed is what the coder works from, and incomplete nursing documentation frequently produces denied claims and unexpected patient bills. When a test is likely to be noncovered, patients may be asked to sign an advance notice acknowledging financial responsibility before it is done.</p></div></div></div></article><article class="test-card" id="ov-genetic-testing-3" data-search="genetic testing" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Genetic testing</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Genetic testing examines DNA, RNA, chromosomes, or gene products to identify inherited variants, and it differs from other laboratory tests in that its results describe not only the patient but the patient's family. Categories include diagnostic testing in a symptomatic person, carrier testing in prospective parents, predictive or presymptomatic testing in a healthy person at risk, prenatal and newborn screening, and pharmacogenomic testing that predicts how a patient will metabolize a drug. Because results can affect reproductive decisions, relationships, insurance concerns, and the patient's sense of the future, genetic counseling before and after testing is considered part of the test rather than an optional extra, and informed consent must address what will be looked for, what incidental findings might surface, how the sample and data will be stored, and who may access the results. Confidentiality carries extra weight here, since the information implicates relatives who never consented to anything. Be careful with language: carrier status is not disease, a variant of uncertain significance is not a diagnosis, and a positive predictive test usually indicates increased risk rather than certainty. The nurse's role is preparing the patient for what the result can and cannot tell them, supporting them through the wait, and reinforcing that a genetic finding does not by itself determine outcome.</p></div></div></div></article><article class="test-card" id="ov-laboratory-methods-4" data-search="laboratory methods" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Laboratory methods</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Understanding roughly how a laboratory produces a number helps you judge what can go wrong with it. Common methods include spectrophotometry and colorimetry, which measure how much light a reaction absorbs to quantify a substance; immunoassay, which uses antibodies to detect specific proteins, hormones, and drugs; enzymatic assays that measure activity rather than concentration; electrophoresis, which separates proteins by charge and size; flow cytometry, which counts and characterizes individual cells; culture, which grows and identifies live organisms and tests their antibiotic susceptibility; and molecular methods such as polymerase chain reaction and sequencing, which detect nucleic acid directly and can identify an organism or a gene variant without growing anything. Point-of-care devices bring simplified versions of several of these to the bedside, trading a degree of precision for speed. Each method has characteristic vulnerabilities: hemolysis releases intracellular contents and falsely raises potassium and several enzymes, lipemia and bilirubin interfere with optical readings, the wrong anticoagulant or an underfilled tube alters results, clotted or diluted specimens are unusable, and molecular tests can detect the nucleic acid of dead organisms after treatment. Reference ranges are method-specific and instrument-specific, so values from two different laboratories are not always directly comparable and serial testing is best done at the same facility.</p></div></div></div></article><article class="test-card" id="ov-standard-precautions-5" data-search="standard precautions" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Standard precautions</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Standard precautions are applied to every patient at all times, regardless of diagnosis or presumed infection status, on the principle that blood and body fluids may be infectious before anyone knows they are. They cover blood, all body fluids, secretions and excretions except sweat, nonintact skin, and mucous membranes. In practice this means hand hygiene before and after every patient contact and immediately after glove removal, gloves whenever contact with body fluid or contaminated surfaces is anticipated, and a gown, mask, and eye protection whenever splashing or spraying is possible, as during many specimen collections and endoscopic procedures. Safe sharps handling is central: activate safety devices, never recap needles, and dispose of sharps immediately in a puncture-resistant container at the point of use. Specimens are treated as infectious, placed in a leakproof container that is closed securely and transported in a sealed biohazard bag with the requisition kept outside the bag, and any spill or contaminated surface is cleaned with an approved disinfectant. Transmission-based precautions, contact, droplet, and airborne, are added on top of standard precautions when a specific organism or syndrome requires it, and they never replace the basics.</p></div></div></div></article><article class="test-card" id="ov-cultural-sensitivity-in-testing-6" data-search="cultural sensitivity in testing" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Cultural sensitivity in testing</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Testing touches the body, bodily fluids, modesty, and beliefs about illness, so cultural context shapes whether a patient consents, prepares correctly, and returns for follow-up. Norms about who may see or touch a patient's body, whether a same-sex clinician is required, whether a family member or elder participates in decisions, and how bad news should be delivered vary widely, and assuming the Western default of individual autonomy and direct disclosure can be experienced as disrespectful. Practical issues also collide with test preparation: fasting requirements may conflict with religious fasting periods or with a communal meal, dietary restrictions may make a prescribed pre-test diet unacceptable, and some patients decline blood draws or genetic testing for religious or historical reasons, including well-founded mistrust rooted in past abuses in research and health care. Ask rather than assume, using open questions about what the patient needs in order to be comfortable and who they want involved. Use a trained medical interpreter rather than a family member, particularly for consent, and allow extra time for teaching when an interpreter is involved. Document preferences so the whole team honors them consistently, and remember that respecting a patient's decision to refuse a test, after they have been fully informed, is part of culturally competent care rather than a failure of it.</p></div></div></div></article><article class="test-card" id="ov-age-related-concerns-in-the-elderly-7" data-search="age-related concerns in the elderly" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Age-related concerns in the elderly</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Aging changes both the numbers a test produces and the patient's ability to get through the test. Kidney function declines with age while muscle mass also declines, so serum creatinine can look deceptively normal in an older adult whose actual glomerular filtration rate is significantly reduced, which matters greatly before contrast studies and when dosing renally cleared drugs. Immune responses blunt with age, so an older adult with a serious infection may have a normal or only slightly elevated white blood cell count and no fever, and confusion or a fall may be the presenting sign instead. Albumin, hemoglobin, and glucose tolerance shift with age and with chronic illness, and polypharmacy is a constant source of interference, so a complete and current medication list is essential. Preparation tolerance is a distinct problem: prolonged fasting risks hypoglycemia and dehydration, bowel preparations and contrast loads risk volume depletion and acute kidney injury, and long periods lying still on a hard table cause pain and skin breakdown. Sensory and cognitive changes mean instructions may need to be written in large print, given slowly, repeated, and confirmed by teach-back, and a caregiver may need to hear them too. Plan for mobility limitations, fall risk, positioning comfort, warmth, and toileting access, and schedule tests to minimize the number of separate trips an older patient must make.</p></div></div></div></article><article class="test-card" id="ov-proper-sequencing-and-scheduling-of-tests-8" data-search="proper sequencing and scheduling of tests" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Proper sequencing and scheduling of tests</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>When several tests are ordered, the order in which they are performed can determine whether the results are usable. The governing rule is that studies using contrast media or radioactive material must follow, not precede, tests that the contrast would interfere with. Barium is the classic offender: it remains in the bowel for days, obscures subsequent abdominal radiographs, ultrasound, and CT, and interferes with numerous stool studies, so stool specimens, ultrasound, and CT are done first and barium studies last. Similarly, iodinated contrast and radionuclides interfere with thyroid uptake studies and certain iodine-based assays for weeks. Among laboratory tests, fasting specimens are drawn before meals and before glucose challenges, cultures are collected before the first dose of antibiotic, and drug levels are timed relative to the dose as trough or peak rather than drawn at convenience. Group tests requiring the same preparation into a single visit to spare the patient repeated fasting, and put invasive or uncomfortable procedures after the noninvasive studies that might make them unnecessary. Also consider physiologic recovery: allow time between procedures requiring sedation, contrast loads, or significant blood volume draws, particularly in older adults, children, and patients with renal impairment. When you are unsure of the correct sequence, call the performing department before scheduling, because a wrongly ordered sequence usually means a repeated test and a delayed diagnosis.</p></div></div></div></article><article class="test-card" id="ov-procedure-and-patient-care-9" data-search="procedure and patient care" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#129514;</span><span class="test-title"><h3>Procedure and patient care</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><p>Nursing responsibility for a diagnostic test runs before, during, and after it, and begins with verifying the right patient. Use at least two patient identifiers, never the room number, and label every specimen at the bedside in the patient's presence, immediately after collection, with the patient's name, identifier, date, time, and your initials, along with the site or source when relevant; prelabeled or later-labeled containers are a leading source of serious error. Confirm the order, the correct container and additive, the correct draw sequence, and any required timing, and check that preparation, fasting, medication holds, bowel prep, or a timed collection window was actually completed rather than only ordered. Informed consent for invasive procedures is obtained by the provider and covers the nature of the procedure, its purpose, realistic risks and benefits, alternatives including doing nothing, and the patient's right to refuse or withdraw at any time; the nurse witnesses the signature, confirms the patient understands what was explained, and notifies the provider if understanding is incomplete. Teach the patient what the test involves in concrete sensory terms, what they will feel, how long it will take, and what they must do, because a prepared patient is safer and more cooperative. During the procedure, position and support the patient, maintain privacy and warmth, apply standard precautions, and monitor for pain, bleeding, and adverse reactions including contrast or latex allergy. Afterward, monitor vital signs and the site, resume diet, medications, and activity as ordered, assess for complications specific to that procedure, report critical values promptly using read-back verification, and document the procedure, the patient's tolerance, the specimen sent, and the follow-up plan.</p></div></div></div></article><article class="test-card" id="ov-my-picture-notes" data-search="my notes pictures removed" style="--c:#1668d8;--cbg:#e8f1fe"><button class="test-head" aria-expanded="false"><span class="test-num">&#9998;</span><span class="test-title"><h3>My notes from the removed pictures</h3></span><span class="chev">&#9660;</span></button><div class="test-body"><div class="sec open" style="--sc:#1668d8;--sbg:#e8f1fe"><div class="sec-body" style="border-top:0"><div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Nine physical exam signs worth memorising — McBurney, Kernig, Brudzinski, Murphy, Rovsing, Cullen, Grey Turner, Babinski and Chvostek — the bedside "tests" that come before any lab test.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div><div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Patient positioning cheat sheet — Supine, prone, lateral, lithotomy, Trendelenburg, Fowler's — which position goes with which procedure.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div><div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Normal vital sign ranges by age group — Newborn through post-partum. Baseline vitals are part of pre-test assessment for every procedure here.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div></div></div></div></article>
+      <div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Nine physical exam signs worth memorising — McBurney, Kernig, Brudzinski, Murphy, Rovsing, Cullen, Grey Turner, Babinski and Chvostek — the bedside "tests" that come before any lab test.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div><div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Patient positioning cheat sheet — Supine, prone, lateral, lithotomy, Trendelenburg, Fowler's — which position goes with which procedure.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div><div class="kept-caption" style="border:1px dashed rgba(255,194,51,.55);background:rgba(255,194,51,.10);border-radius:12px;padding:11px 13px;margin:9px 0;font-size:14px;line-height:1.55;color:#f3e8ff"><b style="color:#fff;font-size:15px">Visual</b><span style="display:block;margin-top:4px">Normal vital sign ranges by age group — Newborn through post-partum. Baseline vitals are part of pre-test assessment for every procedure here.</span><span style="display:block;color:#ffd76a;font-size:13px;font-weight:700;margin-top:6px">&#9888;&#65039; picture removed &mdash; it was another publisher's</span></div>
+      
+    </main>
+  </div>
+</div>
+<footer class="footer"><div class="wrap">
+  Written by me from my own study notes. Reference intervals are checked against current laboratory sources. 
+  <br>Study aid only — always follow your facility's protocols and current clinical guidelines.
+</div></footer>
+</div>
+<button class="backtop" title="Back to top">↑</button>
+<script src="../assets/js/app.js"></script>
+<script id="a11yJS">
+/* a table wider than the screen scrolls inside its own box rather than dragging
+   the whole page sideways */
+(function(){
+  function wrap(){
+    document.querySelectorAll('table').forEach(function(t){
+      var p=t.parentNode;
+      if(!p||p.classList&&p.classList.contains('a11y-tblwrap'))return;
+      var d=document.createElement('div'); d.className='a11y-tblwrap';
+      p.insertBefore(d,t); d.appendChild(t);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wrap);
+  else wrap();
+  setTimeout(wrap,1200);   /* catch tables built by the page's own scripts */
+})();
+</script>
+<script id="navDragJS">
+(function(){
+  var nb=document.getElementById('navBtns');
+  if(!nb||nb.dataset.dragReady) return;
+  nb.dataset.dragReady='1';
+
+  /* ── 1. modifier and middle clicks must open a new tab ───────────────
+     The ABSN link called preventDefault() every time, which killed
+     ctrl/cmd/shift-click and middle-click. Let those through. */
+  function passthrough(e){
+    return e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||e.button===1;
+  }
+  nb.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    if(passthrough(e)){ e.stopImmediatePropagation(); }   /* before the page's own handler */
+  },true);
+  nb.addEventListener('auxclick',function(e){
+    var a=e.target.closest('a');
+    if(a&&e.button===1){ e.stopImmediatePropagation();
+      window.open(a.href,'_blank','noopener'); e.preventDefault(); }
+  },true);
+  /* every button in the cluster also gets a right-click / long-press menu that
+     works, because they stay real <a href> elements */
+
+  /* ── 2. a grip so it is obvious the cluster can be moved ───────────── */
+  var grip=document.createElement('button');
+  grip.id='nbGrip'; grip.type='button';
+  grip.title='Drag to move these buttons \u00b7 double-click to reset';
+  grip.setAttribute('aria-label','Move these buttons');
+  grip.textContent='\u2725';
+  nb.insertBefore(grip,nb.firstChild);
+
+  /* ── 3. drag, and remember where she put it ─────────────────────────── */
+  var KEY='nbPos';
+  function clampPos(l,t){
+    var r=nb.getBoundingClientRect();
+    var maxL=Math.max(0,window.innerWidth-r.width-4);
+    var maxT=Math.max(0,window.innerHeight-r.height-4);
+    return [Math.min(Math.max(0,l),maxL), Math.min(Math.max(0,t),maxT)];
+  }
+  function place(l,t){
+    var p=clampPos(l,t);
+    nb.style.left=p[0]+'px'; nb.style.top=p[1]+'px';
+    nb.style.right='auto'; nb.style.bottom='auto';
+  }
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify({l:parseFloat(nb.style.left)||0,
+                                                  t:parseFloat(nb.style.top)||0})); }catch(e){}
+  }
+  function reset(){
+    nb.style.left=''; nb.style.top=''; nb.style.right=''; nb.style.bottom='';
+    try{ localStorage.removeItem(KEY); }catch(e){}
+  }
+  try{
+    var s=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(s&&typeof s.l==='number') place(s.l,s.t);
+  }catch(e){}
+
+  var dragging=false,ox=0,oy=0,moved=false;
+  function down(x,y,e){
+    var r=nb.getBoundingClientRect();
+    dragging=true; moved=false; ox=x-r.left; oy=y-r.top;
+    nb.classList.add('dragging');
+    if(e&&e.preventDefault) e.preventDefault();
+  }
+  function move(x,y){
+    if(!dragging) return;
+    moved=true; place(x-ox,y-oy);
+  }
+  function up(){
+    if(!dragging) return;
+    dragging=false; nb.classList.remove('dragging');
+    if(moved) save();
+  }
+  grip.addEventListener('mousedown',function(e){ if(e.button===0) down(e.clientX,e.clientY,e); });
+  window.addEventListener('mousemove',function(e){ move(e.clientX,e.clientY); });
+  window.addEventListener('mouseup',up);
+  grip.addEventListener('touchstart',function(e){
+    var t=e.touches[0]; down(t.clientX,t.clientY,e); },{passive:false});
+  window.addEventListener('touchmove',function(e){
+    if(!dragging) return; var t=e.touches[0]; move(t.clientX,t.clientY); e.preventDefault(); },{passive:false});
+  window.addEventListener('touchend',up);
+  grip.addEventListener('dblclick',function(e){ e.preventDefault(); reset(); });
+  /* keyboard: focus the grip and nudge with the arrows */
+  grip.addEventListener('keydown',function(e){
+    var step=e.shiftKey?24:6, r=nb.getBoundingClientRect(), l=r.left, t=r.top, hit=true;
+    if(e.key==='ArrowLeft') l-=step; else if(e.key==='ArrowRight') l+=step;
+    else if(e.key==='ArrowUp') t-=step; else if(e.key==='ArrowDown') t+=step;
+    else if(e.key==='Home'||e.key==='Escape'){ reset(); e.preventDefault(); return; }
+    else hit=false;
+    if(hit){ place(l,t); save(); e.preventDefault(); }
+  });
+  window.addEventListener('resize',function(){
+    if(nb.style.left) place(parseFloat(nb.style.left),parseFloat(nb.style.top));
+  });
+
+  /* ── 4. step aside for full-screen viewers ───────────────────────────
+     Some overlays (the NUR 175 image lightbox, the drug guide drawer) sit
+     below this cluster in the stacking order, so the cluster covered their
+     Close buttons. Find them once, then just watch whether they are shown. */
+  var overlays=[];
+  try{
+    document.querySelectorAll('body *').forEach(function(el){
+      if(overlays.length>40) return;
+      if(el===nb||nb.contains(el)) return;
+      var cs=getComputedStyle(el);
+      if(cs.position!=='fixed') return;
+      var z=parseInt(cs.zIndex,10);
+      if(!(z>=1000)) return;
+      /* covers most of the screen in at least one dimension */
+      var w=parseFloat(cs.width), h=parseFloat(cs.height);
+      var full=(cs.inset==='0px'||cs.top==='0px'&&cs.left==='0px'&&cs.right==='0px'&&cs.bottom==='0px');
+      if(full||(w>=window.innerWidth*0.9&&h>=window.innerHeight*0.9)) overlays.push(el);
+    });
+  }catch(e){}
+  function check(){
+    var open=overlays.some(function(el){
+      var cs=getComputedStyle(el);
+      return cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>0.05;
+    });
+    nb.classList.toggle('hidden-by-overlay',open);
+  }
+  if(overlays.length){
+    check();
+    var t=null;
+    new MutationObserver(function(){ clearTimeout(t); t=setTimeout(check,60); })
+      .observe(document.body,{attributes:true,subtree:true,
+                              attributeFilter:['class','style','hidden']});
+  }
+})();
+</script>
+</body>
+</html>

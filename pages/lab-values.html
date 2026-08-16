@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab Values &amp; Visual Reference</title>
+<meta name="description" content="Visual reference sheets for lab values, electrolytes, ABGs and GI pathology.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="jewel nav-open">
+<style id="navDragCSS">
+#navBtns{touch-action:none}
+#navBtns.dragging{opacity:.9;cursor:grabbing}
+#navBtns.hidden-by-overlay{display:none !important}
+#nbGrip{cursor:grab;background:rgba(255,255,255,.16) !important;
+  border:1px solid rgba(255,255,255,.3) !important;color:#fff !important;
+  border-radius:22px;padding:7px 9px !important;font:900 .9rem 'Segoe UI',system-ui,sans-serif;
+  line-height:1;user-select:none;box-shadow:0 4px 14px rgba(0,0,0,.5);flex:0 0 auto}
+#nbGrip:hover{background:rgba(255,255,255,.32) !important}
+#navBtns.dragging #nbGrip{cursor:grabbing}
+@media print{#navBtns{display:none !important}}
+</style>
+<style id="a11yCSS">
+/* keep wide things inside the viewport so magnifying never forces sideways scrolling */
+img,svg,video,canvas{max-width:100%;height:auto}
+pre,code,kbd{white-space:pre-wrap;overflow-wrap:anywhere}
+.a11y-tblwrap{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+@media(max-width:1024px){
+  #nav a{white-space:normal}
+  .bar{margin-left:0 !important;margin-right:0 !important;max-width:100% !important}
+}
+
+/* rem (not em) so these can never compound down to unreadable sizes */
+small,.eyebrow,.rail-sep,.sm-txt,.tiny,.fine,.cap,.foot{font-size:.82rem}
+sub,sup{font-size:.72rem}
+
+/* keep the fixed Home/ABSN cluster from sitting on top of page titles */
+@media(max-width:1024px){
+  header h1, header p, h1:first-of-type{padding-right:92px}
+}
+@media(max-width:560px){
+  header h1, header p, h1:first-of-type{padding-right:80px}
+}
+</style>
+
+<style id="navbtnCSS">
+#navBtns{position:fixed;top:10px;right:12px;z-index:2147483000;display:flex;gap:7px;align-items:center}
+#navBtns a,#navBtns button{
+  display:inline-block;font:700 .8rem 'Segoe UI',system-ui,sans-serif;
+  padding:7px 13px;border-radius:22px;text-decoration:none;cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);box-shadow:0 4px 14px rgba(0,0,0,.5);
+  color:#fff;white-space:nowrap;line-height:1.3;
+}
+#navBtns .nbLook{background:linear-gradient(135deg,#1d4ed8,#2f6bff)}
+#navBtns .nbHome{background:linear-gradient(135deg,#5a2d82,#8e2d6b)}
+#navBtns .nbAbsn{background:linear-gradient(135deg,#0f7d6b,#12b886)}
+#navBtns a:hover,#navBtns button:hover{filter:brightness(1.15)}
+#navBtns a,#navBtns button{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+/* magnified viewports report a narrow CSS width - shed the labels early so the
+   cluster stops sitting on top of page headings */
+@media(max-width:1024px){
+  #navBtns{top:6px;right:6px;gap:5px}
+  #navBtns .nbLabel{display:none}
+  #navBtns a,#navBtns button{padding:8px 11px;font-size:1rem;line-height:1}
+}
+@media(max-width:560px){
+  #navBtns a,#navBtns button{padding:7px 9px;font-size:.95rem}
+}
+@media print{#navBtns{display:none}}
+</style>
+<div id="navBtns"><a class="nbLook" href="https://arnold7777777.github.io/NUR-198-Study-Guide/Look%20It%20Up.html" target="_blank" rel="noopener" title="Look up any topic across all your sites">&#128269;<span class="nbLabel"> Look Up</span></a><a class="nbHome" href="../index.html" title="Back to this course's study hub">&#127968;<span class="nbLabel"> Home</span></a><a class="nbAbsn" href="https://arnold7777777.github.io/ABSN-Study-Hub/" onclick="return nbToAbsn(event)" title="Close this page and go back toward the ABSN Study Hub">&#127891;<span class="nbLabel"> ABSN Hub</span></a></div>
+<script>if(window.top!==window.self){var _nb=document.getElementById("navBtns");if(_nb)_nb.style.display="none";}</script>
+<script>
+(function(){
+  var ABSN='https://arnold7777777.github.io/ABSN-Study-Hub/';
+  window.nbToAbsn=function(ev){
+    if(ev&&ev.preventDefault)ev.preventDefault();
+    /* On a sub-page: try to close this tab so the study hub behind it is revealed.
+       Browsers only allow close() on script-opened tabs, so fall back to navigating. */
+    try{ window.close(); }catch(e){}
+    setTimeout(function(){ if(!window.closed) window.location.href=ABSN; },120);
+    return false;
+  };
+})();
+</script>
+
+<div class="progress"></div>
+
+<aside class="railnav" id="railnav" aria-label="Site navigation">
+  <div class="rail-head">
+    <a class="brand" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
+  </div>
+  <nav class="rail-links"><a href="../index.html"><span class="ni">🏠</span><span>Home</span></a><a href="foundations.html" style="--c:#1668d8"><span class="ni">🧭</span><span><b>Ch. 1</b> Foundations</span></a><a href="endoscopy.html" style="--c:#7b3fd4"><span class="ni">🔦</span><span><b>Ch. 4</b> Endoscopy</span><em>14</em></a><a href="manometry.html" style="--c:#0a8f9c"><span class="ni">📏</span><span><b>Ch. 6</b> Manometry</span><em>5</em></a><a href="nuclear.html" style="--c:#b56a00"><span class="ni">☢️</span><span><b>Ch. 8</b> Nuclear Scans</span><em>22</em></a><a href="electro.html" style="--c:#d1197f"><span class="ni">⚡</span><span><b>Ch. 3</b> Electrodiagnostic</span><em>13</em></a><a href="micro.html" style="--c:#0f8a4d"><span class="ni">🔬</span><span><b>Ch. 7</b> Micro &amp; Biopsy</span><em>35</em></a><a href="stool.html" style="--c:#8a5a2b"><span class="ni">🧪</span><span><b>Ch. 9</b> Stool Tests</span><em>7</em></a><a href="bloodwork.html" style="--c:#d92c3c"><span class="ni">🩸</span><span>Blood Work</span><em>21</em></a><a href="fluids.html" style="--c:#0a8f9c"><span class="ni">💧</span><span>Fluids &amp; ABGs</span><em>23</em></a><a href="find-a-test.html" style="--c:#4b46c9"><span class="ni">🔎</span><span>Find a Test</span></a><a href="lab-values.html" class="active" style="--c:#d92c3c"><span class="ni">📊</span><span>Visual Reference</span><em>38</em></a></nav>
+  <div class="rail-toc sidebar"><div class="rail-sep">On this page</div><ol><li><a href="#blood-work-you-must-know-cold">Blood work you must know cold</a></li><li><a href="#electrolytes">Electrolytes</a></li><li><a href="#acid-base-abgs">Acid–base / ABGs</a></li><li><a href="#organ-specific-markers">Organ-specific markers</a></li><li><a href="#baselines-bedside-signs">Baselines &amp; bedside signs</a></li><li><a href="#cardiac-tracing">Cardiac tracing</a></li><li><a href="#gi-imaging-pathology">GI imaging &amp; pathology</a></li></ol></div>
+  <div class="rail-foot">
+    <button class="tool-btn wide" data-toggle="jewel" title="Switch between the jewel-glass look and a plain high-contrast one">💎 Jewel look</button>
+  </div>
+</aside>
+<div class="rail-scrim" id="railScrim" hidden></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="navtoggle" id="navToggle" aria-label="Show or hide the menu" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand brand-top" href="../index.html">
+      <span class="logo">🔬</span>
+      <span>Lab &amp; Diagnostic Tests<small>Nursing study guide</small></span>
+    </a>
+    <div class="tools">
+      <button class="tool-btn" data-toggle="big-text" title="Larger text">A+</button>
+      <button class="tool-btn" data-toggle="dyslexic" title="Easier-to-read font">Aa</button>
+      <button class="tool-btn" data-toggle="art-bold" title="Show the background art more strongly">Art</button>
+      <button class="tool-btn" data-toggle="focus" title="Dim everything except the card you opened">Focus</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">Visual reference</div>
+    <h1>📊 Lab Values &amp; Visual Reference</h1>
+    <p class="lede"></p>
+  </div>
+</div>
+<div class="wrap">
+  <div class="layout">
+    <main><div class="prose"><h2 id="blood-work-you-must-know-cold" style="border-bottom-color:#fdeaec">Blood work you must know cold</h2><div class="ref-grid"><div class="ref-card" style="--c:#d92c3c"><div class="rc-head"><h3>BMP panel &amp; electrolytes at a glance</h3><p>Na, K, Cl, CO₂, BUN, creatinine, glucose — with the NCLEX memory tricks.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#d92c3c"><div class="rc-head"><h3>WBCs &amp; the coagulation panel</h3><p>Platelets 150k–400k · PTT 30–40 (heparin 46–70) · INR 0.9–1.2 (warfarin 2–3). Coag values gate every biopsy in this guide.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div><h2 id="electrolytes" style="border-bottom-color:#f2eafd">Electrolytes</h2><div class="ref-grid"><div class="ref-card" style="--c:#7b3fd4"><div class="rc-head"><h3>Every electrolyte, high and low, on one page</h3><p>K, Na, Cl, Mg, Ca, Phosphate — normal range, function, hyper- and hypo- signs and causes.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#7b3fd4"><div class="rc-head"><h3>Serum potassium quick reference</h3><p>&lt;3.5 hypo · 3.5–5.0 normal · &gt;5.0 hyper. Peaked T waves = hyperkalemia. Flat T + U wave = hypokalemia.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div><h2 id="acid-base-abgs" style="border-bottom-color:#e2f6f8">Acid–base / ABGs</h2><div class="ref-grid"><div class="ref-card" style="--c:#0a8f9c"><div class="rc-head"><h3>ABG interpretation, worked through</h3><p>Step 1 pH → Step 2 match pH to its partner (CO₂ = lungs, HCO₃ = kidneys) → Step 3 compensated or not.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div><h2 id="organ-specific-markers" style="border-bottom-color:#fff3dc">Organ-specific markers</h2><div class="ref-grid"><div class="ref-card" style="--c:#b56a00"><div class="rc-head"><h3>Amylase vs lipase — timing is the answer</h3><p>Amylase rises 3–6 h, peaks 20–30 h, normalises in 2–3 days. Lipase follows amylase but stays up to 14 days. Late presentation → lipase is your marker.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#b56a00"><div class="rc-head"><h3>Toxic ranges &amp; antidotes</h3><p>Therapeutic drug monitoring is a lab test too — and the antidote column is the part that gets tested.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div><h2 id="baselines-bedside-signs" style="border-bottom-color:#e5f7ec">Baselines &amp; bedside signs</h2><div class="ref-grid"><div class="ref-card" style="--c:#0f8a4d"><div class="rc-head"><h3>Normal vital sign ranges by age group</h3><p>Newborn through post-partum. Baseline vitals are part of pre-test assessment for every procedure here.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#0f8a4d"><div class="rc-head"><h3>Allen test — before you touch a radial artery</h3><p>Confirms collateral ulnar flow. Colour returns in 5–7 seconds = pass. No return in 10 = do not stick.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div><h2 id="cardiac-tracing" style="border-bottom-color:#fdeaf4">Cardiac tracing</h2><div class="ref-grid"><div class="ref-card" style="--c:#d1197f"><div class="rc-head"><h3>PQRST — what each wave actually means</h3><p>P = atrial depolarisation · QRS = ventricular depolarisation · T = ventricular repolarisation. Everything on an ECG report refers back to this.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div><h2 id="gi-imaging-pathology" style="border-bottom-color:#e8f1fe">GI imaging &amp; pathology</h2><div class="ref-grid"><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>The nine abdominal regions and what lives in each</h3><p>When a report says "epigastric" or "right iliac", this is the map. Pain location narrows the test list fast.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>What the scope actually sees</h3><p>Normal colonic mucosa (left) vs ulcerative colitis (right): loss of vascular pattern, friability, granularity.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>Gastric vs duodenal ulcer</h3><p>The classic EGD finding. Location matters: gastric ulcers get biopsied to rule out cancer.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>Peritonitis</h3><p>The thing you are watching for after a perforation. Rigid abdomen, rebound tenderness, fever, tachycardia.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>A fistula, close up</h3><p>An abnormal tract between two surfaces — a complication colonoscopy and manometry both look for.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>Ileus vs small bowel obstruction</h3><p>Bowel sounds are the tell: quiet/absent in ileus, high-pitched then absent in obstruction.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>Obstruction on abdominal X-ray</h3><p>Dilated loops with air-fluid levels.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>Pyloric stenosis</h3><p>Projectile vomiting in an infant. Upper GI study territory.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div><div class="ref-card" style="--c:#1668d8"><div class="rc-head"><h3>Airway devices — have these at the bedside</h3><p>Endoscopy uses sedation. Oversedation → respiratory depression. Know what's on the crash cart.</p></div><div class="removed-third-party" style="border:1px dashed rgba(255,194,51,.6);background:rgba(255,194,51,.12);color:#ffe9a8;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.55;font-weight:700">&#9888;&#65039; 2 study pictures from other publishers were here. They have been removed &mdash; they were not this site's to host.</div></div></div></div></main>
+  </div>
+</div>
+<footer class="footer"><div class="wrap">
+  Written by me from my own study notes. Reference intervals are checked against current laboratory sources.
+  <br>Study aid only — always follow your facility's protocols and current clinical guidelines.
+</div></footer>
+</div>
+<button class="backtop" title="Back to top">↑</button>
+<script src="../assets/js/app.js"></script>
+<script id="a11yJS">
+/* a table wider than the screen scrolls inside its own box rather than dragging
+   the whole page sideways */
+(function(){
+  function wrap(){
+    document.querySelectorAll('table').forEach(function(t){
+      var p=t.parentNode;
+      if(!p||p.classList&&p.classList.contains('a11y-tblwrap'))return;
+      var d=document.createElement('div'); d.className='a11y-tblwrap';
+      p.insertBefore(d,t); d.appendChild(t);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wrap);
+  else wrap();
+  setTimeout(wrap,1200);   /* catch tables built by the page's own scripts */
+})();
+</script>
+<script id="navDragJS">
+(function(){
+  var nb=document.getElementById('navBtns');
+  if(!nb||nb.dataset.dragReady) return;
+  nb.dataset.dragReady='1';
+
+  /* ── 1. modifier and middle clicks must open a new tab ───────────────
+     The ABSN link called preventDefault() every time, which killed
+     ctrl/cmd/shift-click and middle-click. Let those through. */
+  function passthrough(e){
+    return e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||e.button===1;
+  }
+  nb.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    if(passthrough(e)){ e.stopImmediatePropagation(); }   /* before the page's own handler */
+  },true);
+  nb.addEventListener('auxclick',function(e){
+    var a=e.target.closest('a');
+    if(a&&e.button===1){ e.stopImmediatePropagation();
+      window.open(a.href,'_blank','noopener'); e.preventDefault(); }
+  },true);
+  /* every button in the cluster also gets a right-click / long-press menu that
+     works, because they stay real <a href> elements */
+
+  /* ── 2. a grip so it is obvious the cluster can be moved ───────────── */
+  var grip=document.createElement('button');
+  grip.id='nbGrip'; grip.type='button';
+  grip.title='Drag to move these buttons \u00b7 double-click to reset';
+  grip.setAttribute('aria-label','Move these buttons');
+  grip.textContent='\u2725';
+  nb.insertBefore(grip,nb.firstChild);
+
+  /* ── 3. drag, and remember where she put it ─────────────────────────── */
+  var KEY='nbPos';
+  function clampPos(l,t){
+    var r=nb.getBoundingClientRect();
+    var maxL=Math.max(0,window.innerWidth-r.width-4);
+    var maxT=Math.max(0,window.innerHeight-r.height-4);
+    return [Math.min(Math.max(0,l),maxL), Math.min(Math.max(0,t),maxT)];
+  }
+  function place(l,t){
+    var p=clampPos(l,t);
+    nb.style.left=p[0]+'px'; nb.style.top=p[1]+'px';
+    nb.style.right='auto'; nb.style.bottom='auto';
+  }
+  function save(){
+    try{ localStorage.setItem(KEY,JSON.stringify({l:parseFloat(nb.style.left)||0,
+                                                  t:parseFloat(nb.style.top)||0})); }catch(e){}
+  }
+  function reset(){
+    nb.style.left=''; nb.style.top=''; nb.style.right=''; nb.style.bottom='';
+    try{ localStorage.removeItem(KEY); }catch(e){}
+  }
+  try{
+    var s=JSON.parse(localStorage.getItem(KEY)||'null');
+    if(s&&typeof s.l==='number') place(s.l,s.t);
+  }catch(e){}
+
+  var dragging=false,ox=0,oy=0,moved=false;
+  function down(x,y,e){
+    var r=nb.getBoundingClientRect();
+    dragging=true; moved=false; ox=x-r.left; oy=y-r.top;
+    nb.classList.add('dragging');
+    if(e&&e.preventDefault) e.preventDefault();
+  }
+  function move(x,y){
+    if(!dragging) return;
+    moved=true; place(x-ox,y-oy);
+  }
+  function up(){
+    if(!dragging) return;
+    dragging=false; nb.classList.remove('dragging');
+    if(moved) save();
+  }
+  grip.addEventListener('mousedown',function(e){ if(e.button===0) down(e.clientX,e.clientY,e); });
+  window.addEventListener('mousemove',function(e){ move(e.clientX,e.clientY); });
+  window.addEventListener('mouseup',up);
+  grip.addEventListener('touchstart',function(e){
+    var t=e.touches[0]; down(t.clientX,t.clientY,e); },{passive:false});
+  window.addEventListener('touchmove',function(e){
+    if(!dragging) return; var t=e.touches[0]; move(t.clientX,t.clientY); e.preventDefault(); },{passive:false});
+  window.addEventListener('touchend',up);
+  grip.addEventListener('dblclick',function(e){ e.preventDefault(); reset(); });
+  /* keyboard: focus the grip and nudge with the arrows */
+  grip.addEventListener('keydown',function(e){
+    var step=e.shiftKey?24:6, r=nb.getBoundingClientRect(), l=r.left, t=r.top, hit=true;
+    if(e.key==='ArrowLeft') l-=step; else if(e.key==='ArrowRight') l+=step;
+    else if(e.key==='ArrowUp') t-=step; else if(e.key==='ArrowDown') t+=step;
+    else if(e.key==='Home'||e.key==='Escape'){ reset(); e.preventDefault(); return; }
+    else hit=false;
+    if(hit){ place(l,t); save(); e.preventDefault(); }
+  });
+  window.addEventListener('resize',function(){
+    if(nb.style.left) place(parseFloat(nb.style.left),parseFloat(nb.style.top));
+  });
+
+  /* ── 4. step aside for full-screen viewers ───────────────────────────
+     Some overlays (the NUR 175 image lightbox, the drug guide drawer) sit
+     below this cluster in the stacking order, so the cluster covered their
+     Close buttons. Find them once, then just watch whether they are shown. */
+  var overlays=[];
+  try{
+    document.querySelectorAll('body *').forEach(function(el){
+      if(overlays.length>40) return;
+      if(el===nb||nb.contains(el)) return;
+      var cs=getComputedStyle(el);
+      if(cs.position!=='fixed') return;
+      var z=parseInt(cs.zIndex,10);
+      if(!(z>=1000)) return;
+      /* covers most of the screen in at least one dimension */
+      var w=parseFloat(cs.width), h=parseFloat(cs.height);
+      var full=(cs.inset==='0px'||cs.top==='0px'&&cs.left==='0px'&&cs.right==='0px'&&cs.bottom==='0px');
+      if(full||(w>=window.innerWidth*0.9&&h>=window.innerHeight*0.9)) overlays.push(el);
+    });
+  }catch(e){}
+  function check(){
+    var open=overlays.some(function(el){
+      var cs=getComputedStyle(el);
+      return cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>0.05;
+    });
+    nb.classList.toggle('hidden-by-overlay',open);
+  }
+  if(overlays.length){
+    check();
+    var t=null;
+    new MutationObserver(function(){ clearTimeout(t); t=setTimeout(check,60); })
+      .observe(document.body,{attributes:true,subtree:true,
+                              attributeFilter:['class','style','hidden']});
+  }
+})();
+</script>
+</body>
+</html>
