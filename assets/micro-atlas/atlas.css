@@ -1,0 +1,40 @@
+.micro-atlas{margin:0;background:#081326;color:#f6f3eb;font:18px/1.6 system-ui,sans-serif;color-scheme:dark;overflow-wrap:anywhere}
+.micro-atlas *,.micro-pictures *{box-sizing:border-box}
+.micro-atlas main{max-width:1160px;margin:auto;padding:24px clamp(14px,4vw,40px) 60px}
+.micro-atlas h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;margin:.6em 0;color:#f8d481;max-width:22ch}
+.micro-atlas h2{font-size:1.35rem;line-height:1.3;margin:0 0 16px;color:#a1edeb}
+.micro-atlas h3{font-size:1.1rem;color:#f8d481}
+.micro-atlas p{max-width:70ch}
+.micro-atlas .intro{background:linear-gradient(125deg,#122749,#251b43);padding:24px;border-radius:20px;border:1px solid #5b6c8a}
+.micro-atlas .eyebrow{font-size:.85rem;font-weight:750;letter-spacing:.08em;color:#a1edeb}
+.micro-atlas .controls{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;margin-top:22px}
+.micro-atlas label{display:block;font-weight:700}
+.micro-atlas input,.micro-atlas select{display:block;width:100%;min-height:48px;font:inherit;margin-top:6px;border:1px solid #8396b6;border-radius:10px;background:#101c34;color:#fff;padding:10px 12px}
+.micro-atlas .atlas-card{margin:28px 0;padding:20px;background:#101d34;border:1px solid #536685;border-left:5px solid #44bda9;border-radius:16px;scroll-margin-top:20px;min-width:0}
+.micro-atlas .atlas-card:nth-child(3n){border-left-color:#bd9bf2}
+.micro-atlas .atlas-card:nth-child(3n+1){border-left-color:#f8d481}
+.micro-atlas .atlas-card[hidden]{display:none}
+.micro-atlas .category{color:#c2b4f3;font-size:.85rem;font-weight:700;margin:0 0 8px}
+.micro-atlas .picture-link,.micro-pictures .picture-link{display:block;max-width:100%;border-radius:12px;overflow:hidden;background:#061323}
+.micro-atlas img,.micro-pictures img{display:block;width:100%;height:auto;margin:0;border:0;max-width:100%;object-fit:contain}
+.micro-atlas a,.micro-pictures a{color:#b7f6f1;text-decoration:underline;text-underline-offset:.2em;display:inline-flex;align-items:center;min-height:44px;padding:8px 10px;max-width:100%;overflow-wrap:anywhere}
+.micro-atlas .picture-link,.micro-pictures .picture-link{padding:0}
+.micro-atlas a:focus-visible,.micro-atlas input:focus-visible,.micro-atlas select:focus-visible,.micro-atlas summary:focus-visible,.micro-pictures a:focus-visible{outline:3px solid #ffdb7a;outline-offset:4px}
+.micro-atlas ul,.micro-pictures ul{margin:12px 0;padding-left:1.5em;list-style:disc}
+.micro-atlas li,.micro-pictures li{padding-left:.3em;margin:.55em 0;line-height:1.55}
+.micro-atlas .actions,.micro-pictures .actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.micro-atlas .actions a,.micro-pictures .actions a{background:#173c4d;border:1px solid #7aadae;border-radius:10px}
+.micro-atlas summary{cursor:pointer;min-height:44px;padding:10px 0;color:#c9c0ed}
+.micro-atlas .caption,.micro-pictures .caption{margin:16px 0 8px;color:#e6eaf4;line-height:1.65}
+.micro-atlas .disclosure,.micro-pictures .disclosure{font-size:.85em;line-height:1.5;color:#c6cde0}
+.micro-pictures{margin:20px 0;padding:18px;border:1px solid #5b6c8a;border-radius:16px;background:#0b1930;color:#f6f3eb;font-family:system-ui,sans-serif;min-width:0;text-align:left}
+.micro-pictures h4{color:#f8d481;font-size:1.15em;line-height:1.35;margin:0 0 14px}
+.micro-pictures .micro-picture{margin:0 0 28px;min-width:0}
+.micro-pictures .micro-picture:last-child{margin-bottom:0}
+.micro-pictures h5{font-size:1em;line-height:1.4;color:#a1edeb;margin:18px 0 12px}
+.micro-atlas-banner{padding:14px 18px!important}
+.micro-atlas .skip{position:absolute;left:12px;top:-100px;background:#18364d;z-index:20}
+.micro-atlas .skip:focus{top:10px}
+@media(max-width:600px){.micro-atlas .controls{grid-template-columns:1fr}.micro-atlas .intro,.micro-atlas .atlas-card{padding:16px}.micro-pictures{padding:12px}}
+@media(prefers-reduced-motion:reduce){.micro-atlas *,.micro-pictures *{scroll-behavior:auto!important}}
+@media print{.micro-atlas{background:white;color:#111}.micro-atlas .controls,.micro-atlas .actions{display:none}.micro-atlas .atlas-card{break-inside:avoid;background:white;border:1px solid #666}.micro-atlas h1,.micro-atlas h2,.micro-atlas p,.micro-atlas li{color:#111}}
