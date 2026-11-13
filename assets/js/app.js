@@ -123,7 +123,8 @@
       var q = (ix.value || '').trim().toLowerCase();
       var shown = 0;
       rows.forEach(function (r) {
-        var hit = !q || r.textContent.toLowerCase().indexOf(q) !== -1;
+        var terms = r.textContent + ' ' + (r.getAttribute('data-search') || '');
+        var hit = !q || terms.toLowerCase().indexOf(q) !== -1;
         r.classList.toggle('hidden', !hit);
         if (hit) shown++;
       });
