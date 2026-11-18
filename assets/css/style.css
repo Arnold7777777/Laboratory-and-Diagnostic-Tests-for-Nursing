@@ -228,7 +228,7 @@ body.focus .test-card:not(.is-open){ opacity:.45; filter:saturate(.5); }
    ========================================================================== */
 .grid{display:grid; gap:18px}
 .grid-3{grid-template-columns:repeat(auto-fill,minmax(275px,1fr))}
-.grid-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.grid-2{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
 
 .chcard{
   background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
@@ -858,7 +858,7 @@ body.jewel .navtoggle:hover span{background:#fff}
 /* ==========================================================================
    FIND-A-TEST INDEX
    ========================================================================== */
-.ix-list{display:grid; gap:8px; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); margin:6px 0 26px}
+.ix-list{display:grid; gap:8px; grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr)); margin:6px 0 26px}
 a.ix{
   display:flex; align-items:flex-start; gap:11px; padding:11px 13px; border-radius:11px;
   border:1px solid var(--line); background:var(--card); color:inherit;
@@ -875,6 +875,7 @@ a.ix:hover{transform:translateX(2px); text-decoration:none; border-color:var(--c
   text-transform:uppercase; color:var(--c,var(--blue)); background:var(--cbg,rgba(0,0,0,.05));
   padding:3px 8px; border-radius:999px; white-space:nowrap;
 }
+@media(max-width:600px){a.ix{flex-wrap:wrap;min-width:0}.ix-main{flex:1 1 150px}.ix-chap{max-width:100%;white-space:normal;overflow-wrap:anywhere}}
 .prose h2 .cnt{
   font-size:13px; font-weight:800; letter-spacing:.6px; text-transform:uppercase;
   color:var(--muted); margin-left:8px; vertical-align:middle;
